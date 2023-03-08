@@ -2,10 +2,16 @@
 const memory: {
 	currentSelection: string,
 	lastSelection: string,
+	firstNumber: number,
+	operator: string,
+	secondNumber: number,
 	lastResult: number
 } = {
-	currentSelection: "",
-    lastSelection: "",
+	currentSelection: undefined,
+    lastSelection: undefined,
+	firstNumber: 0,
+	operator: undefined,
+	secondNumber: undefined,
     lastResult: 0,
 };
 
@@ -37,18 +43,50 @@ function operate(a: number, b: number, operation: string): number {
 		return (divide(a, b));
 }
 
+function udpateMemory(selectionKey: string): void {
+	//Modify:
+	// memory.lastSelection = memory.currentSelection;
+	// memory.currentSelection = selectionKey;
+}
+
 function displayChoice(key: string): void {
 	let display = document.querySelector('.display');
-	
 	display.textContent = key;
-	memory.lastSelection = memory.currentSelection;
-	memory.currentSelection = key;
+	
+}
+
+function processInput(selection: Element): void {
+	let selectionType: string;
+	let selectionKey: string;
+	let selectionNumber: number;
+	
+	selectionType = selection.getAttribute('data_type');
+	selectionKey = selection.getAttribute('data-key');
+	
+	if (selectionType === "number") {
+		// Consider story
+		selectionNumber = +selectionKey;
+		// Update memory
+	}
+
+	if (selectionType === "operator") {
+		// Consider story
+		// Update memory
+	}
+	
+	if (selectionKey === "=") {
+		// Consider story
+		operate(memory.firstNumber, memory.secondNumber, selectionType);
+		// Reset memory
+	}
+	displayChoice(selectionKey);
+	udpateMemory(selectionKey);
 }
 
 // Event Listeners
 let selections = document.querySelectorAll('.key');
 selections.forEach((selection): void => {
 	selection.addEventListener('click', (): void => {
-		displayChoice(selection.getAttribute('data-key'));
+		processInput(selection);
 	})
 })
