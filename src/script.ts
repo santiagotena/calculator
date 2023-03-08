@@ -43,15 +43,19 @@ function operate(a: number, b: number, operation: string): number {
 		return (divide(a, b));
 }
 
+// function resetMemory() {
+
+// }
+
 function udpateMemory(selectionKey: string): void {
 	//Modify:
 	// memory.lastSelection = memory.currentSelection;
 	// memory.currentSelection = selectionKey;
 }
 
-function displayChoice(key: string): void {
+function displayChoice(selectionKey: string): void {
 	let display = document.querySelector('.display');
-	display.textContent = key;
+	display.textContent = selectionKey;
 	
 }
 
@@ -80,7 +84,6 @@ function processInput(selection: Element): void {
 		// Reset memory
 	}
 	displayChoice(selectionKey);
-	udpateMemory(selectionKey);
 }
 
 // Event Listeners

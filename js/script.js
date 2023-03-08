@@ -30,14 +30,16 @@ function operate(a, b, operation) {
     else if (operation == "divide")
         return (divide(a, b));
 }
+// function resetMemory() {
+// }
 function udpateMemory(selectionKey) {
     //Modify:
     // memory.lastSelection = memory.currentSelection;
     // memory.currentSelection = selectionKey;
 }
-function displayChoice(key) {
+function displayChoice(selectionKey) {
     let display = document.querySelector('.display');
-    display.textContent = key;
+    display.textContent = selectionKey;
 }
 function processInput(selection) {
     let selectionType;
@@ -60,7 +62,6 @@ function processInput(selection) {
         // Reset memory
     }
     displayChoice(selectionKey);
-    udpateMemory(selectionKey);
 }
 // Event Listeners
 let selections = document.querySelectorAll('.key');
