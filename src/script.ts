@@ -6,6 +6,7 @@ const memory: {
 	operator: string,
 	secondNumber: number,
 	lastResult: number,
+	applyNegative: boolean,
 	displayString: string
 } = {
 	// currentSelection: undefined,
@@ -14,6 +15,7 @@ const memory: {
 	operator: undefined,
 	secondNumber: undefined,
     lastResult: 0,
+	applyNegative: false,
 	displayString: "",
 };
 
@@ -53,8 +55,8 @@ function resetMemory(memory): void {
 	memory.operator = undefined;
 	memory.secondNumber = undefined;
 	memory.lastResult = 0;
+	memory.applyNegative = false;
 	memory.displayString = "";
-	resetDisplay();
 }
 
 function udpateMemory(selectionKey: string): void {
@@ -80,35 +82,82 @@ function displayChoice(displayNumber: string): void {
 function processNumber(selectionNumber: number): void {
 	if (memory.firstNumber == undefined) {
 		memory.firstNumber = selectionNumber;
+		if (memory.applyNegative == true) {
+			memory.firstNumber = memory.firstNumber * -1;
+			memory.applyNegative = false;
+		}
 		memory.displayString = memory.displayString.concat('', selectionNumber.toString());
-		displayChoice(memory.displayString);
-		return ;
 	}
-	else if (memory.operator != undefined) {
-		memory.secondNumber = selectionNumber;
-		memory.displayString = memory.displayString.concat(' ', selectionNumber.toString());
-		displayChoice(memory.displayString);
-		return ;
-	}
-	
-	if (memory.firstNumber != undefined && memory.operator == undefined) {
+	else if (memory.firstNumber != undefined && memory.operator == undefined) {
 		memory.firstNumber = memory.firstNumber * 10 + selectionNumber;
 		memory.displayString = memory.displayString.concat('', selectionNumber.toString());
-		displayChoice(memory.displayString);
-		return ;
 	}
-	if (memory.secondNumber != undefined && memory.operator != undefined) {
+	else if (memory.firstNumber != undefined && memory.operator != undefined && memory.secondNumber == undefined) {
+		memory.secondNumber = selectionNumber;
+		if (memory.applyNegative == true) {
+			memory.secondNumber = memory.secondNumber * -1;
+			memory.applyNegative = false;
+		}
+		memory.displayString = memory.displayString.concat(' ', selectionNumber.toString());
+	}
+	else if (memory.secondNumber != undefined && memory.operator != undefined) {
 		memory.secondNumber = memory.secondNumber * 10 + selectionNumber;
 		memory.displayString = memory.displayString.concat('', selectionNumber.toString());
-		displayChoice(memory.displayString);
-		return ;
 	}
-
+	displayChoice(memory.displayString);
 }
 
 function processOperator(selectionType: string): void {
-	// Consider story
-	// Update memory
+	if (memory.firstNumber == undefined || (memory.firstNumber == 0 && memory.operator != undefined)) {
+		if (selectionType == "substract") {
+			memory.applyNegative = true;
+			memory.displayString = "-";
+			displayChoice(memory.displayString);
+			return ;
+		}
+		if (selectionType == "add" && memory.applyNegative == false) {
+			memory.firstNumber = 0;
+			memory.displayString = "0 +";
+		}
+		if (selectionType == "multiply" && memory.applyNegative == false) {
+			memory.firstNumber = 0;
+			memory.displayString = "0 x";
+		}
+		if (selectionType == "divide" && memory.applyNegative == false) {
+			memory.firstNumber = 0;
+			memory.displayString = "0 ÷";
+		}
+		memory.operator = selectionType;
+		displayChoice(memory.displayString);
+		return ;
+	}
+	else if (memory.firstNumber != undefined && memory.secondNumber == undefined && memory.operator == undefined) {
+		if (selectionType == "substract")
+			memory.displayString = memory.displayString.concat('', " -");
+		if (selectionType == "add")
+			memory.displayString = memory.displayString.concat('', " +");
+		if (selectionType == "multiply")
+			memory.displayString = memory.displayString.concat('', " x");
+		if (selectionType == "divide")
+			memory.displayString = memory.displayString.concat('', " ÷");
+		memory.operator = selectionType;
+		displayChoice(memory.displayString);
+		return ;
+	}
+	else if (memory.firstNumber != undefined && memory.secondNumber == undefined && memory.operator != undefined) {
+		memory.displayString = memory.displayString.slice(0, -1);
+		if (selectionType == "substract")
+			memory.displayString = memory.displayString.concat('', "-");
+		if (selectionType == "add")
+			memory.displayString = memory.displayString.concat('', "+");
+		if (selectionType == "multiply")
+			memory.displayString = memory.displayString.concat('', "x");
+		if (selectionType == "divide")
+			memory.displayString = memory.displayString.concat('', "÷");
+		memory.operator = selectionType;
+		displayChoice(memory.displayString);
+		return ;
+	}
 }
 
 function processResult(): void {
@@ -130,7 +179,7 @@ function processInput(selection: Element): void {
 		processNumber(selectionNumber);
 	}
 	if (selectionType === "operator")
-		processOperator(selectionType);
+		processOperator(selectionKey);
 	if (selectionKey === "=")
 		processResult();
 	// displayChoice(selectionKey);
