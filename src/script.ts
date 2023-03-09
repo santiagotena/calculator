@@ -1,4 +1,4 @@
-// Global object
+// Global object for memory //
 const memory: {
 	currentSelection: string,
 	lastSelection: string,
@@ -9,13 +9,13 @@ const memory: {
 } = {
 	currentSelection: undefined,
     lastSelection: undefined,
-	firstNumber: 0,
+	firstNumber: undefined, // 0?
 	operator: undefined,
 	secondNumber: undefined,
     lastResult: 0,
 };
 
-// Core
+// Operations //
 function add(a: number, b: number): number {
 	return (a + b);
 }
@@ -43,9 +43,16 @@ function operate(a: number, b: number, operation: string): number {
 		return (divide(a, b));
 }
 
-// function resetMemory() {
-
-// }
+// Memory //
+function resetMemory(memory): void {
+	memory.currentSelection = undefined;
+	memory.lastSelection = undefined;
+	memory.firstNumber = undefined;
+	memory.operator = undefined;
+	memory.secondNumber = undefined;
+	memory.lastResult = 0;
+	displayChoice("0");
+}
 
 function udpateMemory(selectionKey: string): void {
 	//Modify:
@@ -53,10 +60,28 @@ function udpateMemory(selectionKey: string): void {
 	// memory.currentSelection = selectionKey;
 }
 
+// Display selection and results //
 function displayChoice(selectionKey: string): void {
 	let display = document.querySelector('.display');
 	display.textContent = selectionKey;
 	
+}
+
+// Input processing //
+function processNumber(selectionNumber: number): void {
+	// Consider story
+	// Update memory
+}
+
+function processOperator(selectionType: string): void {
+	// Consider story
+	// Update memory
+}
+
+function processResult(): void {
+	// Consider story
+	operate(memory.firstNumber, memory.secondNumber, memory.operator);
+	// Reset memory
 }
 
 function processInput(selection: Element): void {
@@ -66,27 +91,19 @@ function processInput(selection: Element): void {
 	
 	selectionType = selection.getAttribute('data_type');
 	selectionKey = selection.getAttribute('data-key');
-	
-	if (selectionType === "number") {
-		// Consider story
+	if (selectionType === "number")
+	{
 		selectionNumber = +selectionKey;
-		// Update memory
+		processNumber(selectionNumber);
 	}
-
-	if (selectionType === "operator") {
-		// Consider story
-		// Update memory
-	}
-	
-	if (selectionKey === "=") {
-		// Consider story
-		operate(memory.firstNumber, memory.secondNumber, selectionType);
-		// Reset memory
-	}
+	if (selectionType === "operator")
+		processOperator(selectionType);
+	if (selectionKey === "=")
+		processResult();
 	displayChoice(selectionKey);
 }
 
-// Event Listeners
+// Event Listeners //
 let selections = document.querySelectorAll('.key');
 selections.forEach((selection): void => {
 	selection.addEventListener('click', (): void => {
