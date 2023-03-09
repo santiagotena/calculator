@@ -129,17 +129,22 @@ function processOperator(selectionType) {
     }
 }
 function processResult() {
-    // Consider story
-    // if (first but no operator and no second)
-    // Ans is first
-    if (memory.operator == "divide" && memory.secondNumber == 0) {
-        displayScreen("Wait. That's illegal.");
-        return;
-    }
-    operate(memory.firstNumber, memory.secondNumber, memory.operator);
-    // Display result
-    // Reset memory 
-    // Save answer
+    // 	let result: number;
+    // 	if (memory.firstNumber != undefined && memory.operator == undefined && memory.secondNumber == undefined)
+    // 		result = memory.firstNumber;
+    // 	else if (memory.firstNumber != undefined && memory.operator != undefined && memory.secondNumber != undefined)
+    // 	{
+    // 		if (memory.operator == "divide" && memory.secondNumber == 0)
+    // 		{
+    // 			displayScreen("Wait. That's illegal.")
+    // 			resetMemory();
+    // 			return ;
+    // 		}
+    // 		result = operate(memory.firstNumber, memory.secondNumber, memory.operator);
+    // 	}
+    // 	displayScreen(result.toString());
+    // 	resetMemory();
+    // 	memory.lastResult = result;
 }
 function clear() {
     resetMemory();
