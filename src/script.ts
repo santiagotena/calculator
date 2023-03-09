@@ -150,6 +150,8 @@ function processOperator(selectionType: string): void {
 
 function processResult(): void {
 	// Consider story
+	// if (first but no operator and no second)
+	// Ans is first
 	if (memory.operator == "divide" && memory.secondNumber == 0)
 	{
 		displayScreen("Wait. That's illegal.")
@@ -157,7 +159,8 @@ function processResult(): void {
 	}
 	operate(memory.firstNumber, memory.secondNumber, memory.operator);
 	// Display result
-	// Reset memory
+	// Reset memory 
+	// Save answer
 }
 
 function clear(): void {
