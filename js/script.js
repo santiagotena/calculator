@@ -130,8 +130,8 @@ function processOperator(selectionType) {
 }
 function processResult() {
     // Consider story
-    if (memory.operator == "division" && memory.secondNumber == 0) {
-        displayScreen("Wait. That's Ilegal.");
+    if (memory.operator == "divide" && memory.secondNumber == 0) {
+        displayScreen("Wait. That's illegal.");
         return;
     }
     operate(memory.firstNumber, memory.secondNumber, memory.operator);

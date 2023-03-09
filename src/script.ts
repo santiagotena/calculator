@@ -150,9 +150,9 @@ function processOperator(selectionType: string): void {
 
 function processResult(): void {
 	// Consider story
-	if (memory.operator == "division" && memory.secondNumber == 0)
+	if (memory.operator == "divide" && memory.secondNumber == 0)
 	{
-		displayScreen("Wait. That's Ilegal.")
+		displayScreen("Wait. That's illegal.")
 		return ;
 	}
 	operate(memory.firstNumber, memory.secondNumber, memory.operator);
