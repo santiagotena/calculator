@@ -31,7 +31,7 @@ function operate(a, b, operation) {
         return (divide(a, b));
 }
 // Memory //
-function resetMemory(memory) {
+function resetMemory() {
     memory.firstNumber = undefined;
     memory.operator = undefined;
     memory.secondNumber = undefined;
@@ -135,7 +135,12 @@ function processResult() {
         return;
     }
     operate(memory.firstNumber, memory.secondNumber, memory.operator);
+    // Display result
     // Reset memory
+}
+function clear() {
+    resetMemory();
+    resetDisplay();
 }
 function processInput(selection) {
     let selectionType;
@@ -151,6 +156,8 @@ function processInput(selection) {
         processOperator(selectionKey);
     if (selectionKey === "=")
         processResult();
+    if (selectionKey == "CLEAR")
+        clear();
 }
 // Event Listeners //
 let selections = document.querySelectorAll('.key');

@@ -7,7 +7,7 @@ const memory: {
 	applyNegative: boolean,
 	displayString: string
 } = {
-	firstNumber: undefined, // 0?
+	firstNumber: undefined,
 	operator: undefined,
 	secondNumber: undefined,
     lastResult: 0,
@@ -44,7 +44,7 @@ function operate(a: number, b: number, operation: string): number {
 }
 
 // Memory //
-function resetMemory(memory): void {
+function resetMemory(): void {
 	memory.firstNumber = undefined;
 	memory.operator = undefined;
 	memory.secondNumber = undefined;
@@ -156,7 +156,13 @@ function processResult(): void {
 		return ;
 	}
 	operate(memory.firstNumber, memory.secondNumber, memory.operator);
+	// Display result
 	// Reset memory
+}
+
+function clear(): void {
+	resetMemory();
+	resetDisplay();
 }
 
 function processInput(selection: Element): void {
@@ -175,6 +181,8 @@ function processInput(selection: Element): void {
 		processOperator(selectionKey);
 	if (selectionKey === "=")
 		processResult();
+	if (selectionKey == "CLEAR")
+		clear();
 }
 
 // Event Listeners //
