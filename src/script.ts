@@ -68,6 +68,7 @@ function displayScreen(displayNumber: string): void {
 
 // Input processing //
 function processNumber(selectionNumber: number): void {
+	// DO NOT print zeroes at the start!
 	if (memory.firstNumber == undefined) {
 		memory.firstNumber = selectionNumber;
 		if (memory.applyNegative == true) {

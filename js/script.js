@@ -50,6 +50,7 @@ function displayScreen(displayNumber) {
 }
 // Input processing //
 function processNumber(selectionNumber) {
+    // DO NOT print zeroes at the start!
     if (memory.firstNumber == undefined) {
         memory.firstNumber = selectionNumber;
         if (memory.applyNegative == true) {
