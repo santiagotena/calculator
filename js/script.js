@@ -1,7 +1,5 @@
 // Global object for memory //
 const memory = {
-    // currentSelection: undefined,
-    // lastSelection: undefined,
     firstNumber: undefined,
     operator: undefined,
     secondNumber: undefined,
@@ -34,8 +32,6 @@ function operate(a, b, operation) {
 }
 // Memory //
 function resetMemory(memory) {
-    // memory.currentSelection = undefined;
-    // memory.lastSelection = undefined;
     memory.firstNumber = undefined;
     memory.operator = undefined;
     memory.secondNumber = undefined;
@@ -43,17 +39,12 @@ function resetMemory(memory) {
     memory.applyNegative = false;
     memory.displayString = "";
 }
-function udpateMemory(selectionKey) {
-    //Modify:
-    // memory.lastSelection = memory.currentSelection;
-    // memory.currentSelection = selectionKey;
-}
 // Display selection and results //
 function resetDisplay() {
     let display = document.querySelector('.display');
     display.textContent = "0";
 }
-function displayChoice(displayNumber) {
+function displayScreen(displayNumber) {
     let display = document.querySelector('.display');
     display.textContent = displayNumber;
 }
@@ -83,14 +74,14 @@ function processNumber(selectionNumber) {
         memory.secondNumber = memory.secondNumber * 10 + selectionNumber;
         memory.displayString = memory.displayString.concat('', selectionNumber.toString());
     }
-    displayChoice(memory.displayString);
+    displayScreen(memory.displayString);
 }
 function processOperator(selectionType) {
     if (memory.firstNumber == undefined || (memory.firstNumber == 0 && memory.operator != undefined)) {
         if (selectionType == "substract") {
             memory.applyNegative = true;
             memory.displayString = "-";
-            displayChoice(memory.displayString);
+            displayScreen(memory.displayString);
             return;
         }
         if (selectionType == "add" && memory.applyNegative == false) {
@@ -106,7 +97,7 @@ function processOperator(selectionType) {
             memory.displayString = "0 ÷";
         }
         memory.operator = selectionType;
-        displayChoice(memory.displayString);
+        displayScreen(memory.displayString);
         return;
     }
     else if (memory.firstNumber != undefined && memory.secondNumber == undefined && memory.operator == undefined) {
@@ -119,7 +110,7 @@ function processOperator(selectionType) {
         if (selectionType == "divide")
             memory.displayString = memory.displayString.concat('', " ÷");
         memory.operator = selectionType;
-        displayChoice(memory.displayString);
+        displayScreen(memory.displayString);
         return;
     }
     else if (memory.firstNumber != undefined && memory.secondNumber == undefined && memory.operator != undefined) {
@@ -133,12 +124,16 @@ function processOperator(selectionType) {
         if (selectionType == "divide")
             memory.displayString = memory.displayString.concat('', "÷");
         memory.operator = selectionType;
-        displayChoice(memory.displayString);
+        displayScreen(memory.displayString);
         return;
     }
 }
 function processResult() {
     // Consider story
+    if (memory.operator == "division" && memory.secondNumber == 0) {
+        displayScreen("Wait. That's Ilegal.");
+        return;
+    }
     operate(memory.firstNumber, memory.secondNumber, memory.operator);
     // Reset memory
 }
@@ -156,7 +151,6 @@ function processInput(selection) {
         processOperator(selectionKey);
     if (selectionKey === "=")
         processResult();
-    // displayChoice(selectionKey);
 }
 // Event Listeners //
 let selections = document.querySelectorAll('.key');
