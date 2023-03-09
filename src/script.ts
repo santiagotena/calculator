@@ -1,18 +1,20 @@
 // Global object for memory //
 const memory: {
-	currentSelection: string,
-	lastSelection: string,
+	// currentSelection: string,
+	// lastSelection: string,
 	firstNumber: number,
 	operator: string,
 	secondNumber: number,
-	lastResult: number
+	lastResult: number,
+	displayString: string
 } = {
-	currentSelection: undefined,
-    lastSelection: undefined,
+	// currentSelection: undefined,
+    // lastSelection: undefined,
 	firstNumber: undefined, // 0?
 	operator: undefined,
 	secondNumber: undefined,
     lastResult: 0,
+	displayString: "",
 };
 
 // Operations //
@@ -45,13 +47,14 @@ function operate(a: number, b: number, operation: string): number {
 
 // Memory //
 function resetMemory(memory): void {
-	memory.currentSelection = undefined;
-	memory.lastSelection = undefined;
+	// memory.currentSelection = undefined;
+	// memory.lastSelection = undefined;
 	memory.firstNumber = undefined;
 	memory.operator = undefined;
 	memory.secondNumber = undefined;
 	memory.lastResult = 0;
-	displayChoice("0");
+	memory.displayString = "";
+	resetDisplay();
 }
 
 function udpateMemory(selectionKey: string): void {
@@ -61,16 +64,46 @@ function udpateMemory(selectionKey: string): void {
 }
 
 // Display selection and results //
-function displayChoice(selectionKey: string): void {
+function resetDisplay(): void {
 	let display = document.querySelector('.display');
-	display.textContent = selectionKey;
-	
+
+	display.textContent = "0";
+}
+
+function displayChoice(displayNumber: string): void {
+	let display = document.querySelector('.display');
+
+	display.textContent = displayNumber;
 }
 
 // Input processing //
 function processNumber(selectionNumber: number): void {
-	// Consider story
-	// Update memory
+	if (memory.firstNumber == undefined) {
+		memory.firstNumber = selectionNumber;
+		memory.displayString = memory.displayString.concat('', selectionNumber.toString());
+		displayChoice(memory.displayString);
+		return ;
+	}
+	else if (memory.operator != undefined) {
+		memory.secondNumber = selectionNumber;
+		memory.displayString = memory.displayString.concat(' ', selectionNumber.toString());
+		displayChoice(memory.displayString);
+		return ;
+	}
+	
+	if (memory.firstNumber != undefined && memory.operator == undefined) {
+		memory.firstNumber = memory.firstNumber * 10 + selectionNumber;
+		memory.displayString = memory.displayString.concat('', selectionNumber.toString());
+		displayChoice(memory.displayString);
+		return ;
+	}
+	if (memory.secondNumber != undefined && memory.operator != undefined) {
+		memory.secondNumber = memory.secondNumber * 10 + selectionNumber;
+		memory.displayString = memory.displayString.concat('', selectionNumber.toString());
+		displayChoice(memory.displayString);
+		return ;
+	}
+
 }
 
 function processOperator(selectionType: string): void {
@@ -89,7 +122,7 @@ function processInput(selection: Element): void {
 	let selectionKey: string;
 	let selectionNumber: number;
 	
-	selectionType = selection.getAttribute('data_type');
+	selectionType = selection.getAttribute('data-type');
 	selectionKey = selection.getAttribute('data-key');
 	if (selectionType === "number")
 	{
@@ -100,7 +133,7 @@ function processInput(selection: Element): void {
 		processOperator(selectionType);
 	if (selectionKey === "=")
 		processResult();
-	displayChoice(selectionKey);
+	// displayChoice(selectionKey);
 }
 
 // Event Listeners //
@@ -110,3 +143,6 @@ selections.forEach((selection): void => {
 		processInput(selection);
 	})
 })
+
+// Debugger
+// http://localhost:5500/top/projects/calculator/
