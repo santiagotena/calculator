@@ -14,15 +14,21 @@ let displayScreen = displayImport.displayScreen;
 
 
 function processNumber(selectionNumber: number): void {
-	if (memory.firstNumber == undefined && selectionNumber == 0)
-	{
+	if (memory.firstNumber == undefined && selectionNumber == 0) {
 		memory.firstNumber = 0;
 		memory.displayString = "0";
 		return ;
 	}
-	if (memory.firstNumber == 0 && selectionNumber == 0)
+	else if (memory.firstNumber == 0 && selectionNumber == 0)
 		return ;
-
+	else if (memory.firstNumber == 0 && selectionNumber != 0) {
+		memory.firstNumber = selectionNumber;
+		memory.displayString = memory.displayString.slice(0, -1);
+		displayScreen(memory.displayString);
+		memory.displayString = memory.displayString.concat('', selectionNumber.toString());
+		displayScreen(memory.displayString);
+		return ;
+	}
 	if (memory.firstNumber == undefined) {
 		memory.firstNumber = selectionNumber;
 		if (memory.applyNegative == true) {

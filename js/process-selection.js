@@ -12,8 +12,16 @@ function processNumber(selectionNumber) {
         memory.displayString = "0";
         return;
     }
-    if (memory.firstNumber == 0 && selectionNumber == 0)
+    else if (memory.firstNumber == 0 && selectionNumber == 0)
         return;
+    else if (memory.firstNumber == 0 && selectionNumber != 0) {
+        memory.firstNumber = selectionNumber;
+        memory.displayString = memory.displayString.slice(0, -1);
+        displayScreen(memory.displayString);
+        memory.displayString = memory.displayString.concat('', selectionNumber.toString());
+        displayScreen(memory.displayString);
+        return;
+    }
     if (memory.firstNumber == undefined) {
         memory.firstNumber = selectionNumber;
         if (memory.applyNegative == true) {
