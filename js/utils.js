@@ -11,6 +11,6 @@ function clear() {
 }
 function processAns() {
     if (memory.firstNumber == undefined) {
-        displayScreen(memory.displayString);
+        // displayScreen(memory.displayString);
     }
 }
