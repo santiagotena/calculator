@@ -1,54 +1,11 @@
-// Global object for memory //
-const memory = {
-    firstNumber: undefined,
-    operator: undefined,
-    secondNumber: undefined,
-    lastResult: undefined,
-    applyNegative: false,
-    displayString: "",
-};
-// Operations //
-function add(a, b) {
-    return (a + b);
-}
-function substract(a, b) {
-    return (a - b);
-}
-function multiply(a, b) {
-    return (a * b);
-}
-function divide(a, b) {
-    return (a / b);
-}
-function operate(a, b, operation) {
-    if (operation == "add")
-        return (add(a, b));
-    else if (operation == "substract")
-        return (substract(a, b));
-    else if (operation == "multiply")
-        return (multiply(a, b));
-    else if (operation == "divide")
-        return (divide(a, b));
-}
-// Memory //
-function resetMemory() {
-    memory.firstNumber = undefined;
-    memory.operator = undefined;
-    memory.secondNumber = undefined;
-    memory.lastResult = undefined;
-    memory.applyNegative = false;
-    memory.displayString = "";
-}
-// Display selection and results //
-function resetDisplay() {
-    let display = document.querySelector('.display');
-    display.textContent = "0";
-}
-function displayScreen(displayNumber) {
-    let display = document.querySelector('.display');
-    display.textContent = displayNumber;
-}
-// Input processing //
+export { processNumber, processOperator, processResult };
+import * as memoryImport from './memory.js';
+let memory = memoryImport.memory;
+let resetMemory = memoryImport.resetMemory;
+import * as operationsImport from './operations.js';
+let operate = operationsImport.operate;
+import * as displayImport from './display.js';
+let displayScreen = displayImport.displayScreen;
 function processNumber(selectionNumber) {
     // DO NOT print zeroes at the start!
     if (memory.firstNumber == undefined) {
@@ -147,41 +104,3 @@ function processResult() {
     memory.displayString = result.toString();
     displayScreen(memory.displayString);
 }
-function clear() {
-    resetMemory();
-    resetDisplay();
-}
-function processInput(selection) {
-    let selectionType;
-    let selectionKey;
-    let selectionNumber;
-    selectionType = selection.getAttribute('data-type');
-    selectionKey = selection.getAttribute('data-key');
-    if (selectionType === "number") {
-        selectionNumber = +selectionKey;
-        processNumber(selectionNumber);
-    }
-    if (selectionType === "operator")
-        processOperator(selectionKey);
-    if (selectionKey === "=")
-        processResult();
-    if (selectionKey == "CLEAR")
-        clear();
-}
-// Event Listeners //
-let selections = document.querySelectorAll('.key');
-selections.forEach((selection) => {
-    selection.addEventListener('click', () => {
-        processInput(selection);
-    });
-});
-///////////
-// Debugger
-// http://localhost:5500/top/projects/calculator/
-// To do:
-// [x] Chain calculations
-// [ ] Avoid multiple zeroes
-// [ ] Ans
-// [ ] .
-// [ ] Keyboard Support
-// [ ] CSS
