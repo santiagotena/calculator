@@ -6,8 +6,15 @@ let memory = memoryImport.memory;
 let resetMemory = memoryImport.resetMemory;
 import * as displayImport from './display.js';
 let displayScreen = displayImport.displayScreen;
+let resetDisplay = displayImport.resetDisplay;
 function processNumber(selectionNumber) {
     if (memory.firstNumber == undefined && selectionNumber == 0) {
+        memory.firstNumber = 0;
+        memory.displayString = "0";
+        return;
+    }
+    else if (memory.lastResult != undefined && selectionNumber == 0) {
+        resetDisplay();
         memory.firstNumber = 0;
         memory.displayString = "0";
         return;
