@@ -1,0 +1,9 @@
+To do:
+
+[x] Chain calculations
+[x] link JS/TS files
+[x] Avoid multiple zeroes
+[ ] Ans
+[ ] .
+[ ] Keyboard Support
+[ ] CSS
