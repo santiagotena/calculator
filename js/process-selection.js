@@ -6,7 +6,6 @@ let memory = memoryImport.memory;
 let resetMemory = memoryImport.resetMemory;
 import * as displayImport from './display.js';
 let displayScreen = displayImport.displayScreen;
-let resetDisplay = displayImport.resetDisplay;
 const isLastResult = () => (memory.lastResult != undefined);
 const isFirstNumber = () => (memory.firstNumber != undefined);
 const isOperator = () => (memory.operator != undefined);
@@ -96,7 +95,7 @@ function processOperator(selectionType) {
         displayScreen(memory.displayString);
         return;
     }
-    else if (memory.firstNumber != undefined && memory.operator == undefined && memory.secondNumber == undefined) {
+    else if (isFirstNumber() && !isOperator() && !isSecondNumber()) {
         if (selectionType == "substract")
             memory.displayString = memory.displayString.concat('', " -");
         if (selectionType == "add")
@@ -109,7 +108,7 @@ function processOperator(selectionType) {
         displayScreen(memory.displayString);
         return;
     }
-    else if (memory.firstNumber != undefined && memory.operator != undefined && memory.secondNumber == undefined) {
+    else if (isFirstNumber() && isOperator() && !isSecondNumber()) {
         memory.displayString = memory.displayString.slice(0, -1);
         if (selectionType == "substract")
             memory.displayString = memory.displayString.concat('', "-");

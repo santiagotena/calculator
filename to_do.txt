@@ -4,14 +4,17 @@ To do:
 [x] link JS/TS files
 [x] Avoid multiple zeroes
 [x] Round long decimals - 2 figures
-[ ] Handle new operations as a chain
+[x] Handle new operations as a chain
 [ ] Ans
-[ ] Backspace
 [ ] .
 	[ ] Careful of multiple instances in a number
 [ ] Keyboard Support
 [ ] CSS
+[ ] Backspace
+	[ ] Stop at beginning and reset display
+
+[ ] Backspace Improve to many clicks
 
 Strange cases
-[ ] -79 + 85 = 24 instead of 6
-[ ] 0 - 5 = 0 5
+[x] -79 + 85 = 24 instead of 6
+[x] 0 - 5 = 0 5
