@@ -150,23 +150,23 @@ function processOperator(selectionType: string): void {
 }
 
 function processResult(): void {
-// 	let result: number;
+	let result: number;
 
-// 	if (memory.firstNumber != undefined && memory.operator == undefined && memory.secondNumber == undefined)
-// 		result = memory.firstNumber;
-// 	else if (memory.firstNumber != undefined && memory.operator != undefined && memory.secondNumber != undefined)
-// 	{
-// 		if (memory.operator == "divide" && memory.secondNumber == 0)
-// 		{
-// 			displayScreen("Wait. That's illegal.")
-// 			resetMemory();
-// 			return ;
-// 		}
-// 		result = operate(memory.firstNumber, memory.secondNumber, memory.operator);
-// 	}
-// 	displayScreen(result.toString());
-// 	resetMemory();
-// 	memory.lastResult = result;
+	if (memory.firstNumber != undefined && memory.operator == undefined && memory.secondNumber == undefined)
+		result = memory.firstNumber;
+	else if (memory.firstNumber != undefined && memory.operator != undefined && memory.secondNumber != undefined)
+	{
+		if (memory.operator == "divide" && memory.secondNumber == 0)
+		{
+			displayScreen("Wait. That's illegal.")
+			resetMemory();
+			return ;
+		}
+		result = operate(memory.firstNumber, memory.secondNumber, memory.operator);
+	}
+	resetMemory();
+	memory.lastResult = result;
+	displayScreen(result.toString());
 }
 
 function clear(): void {
@@ -204,3 +204,10 @@ selections.forEach((selection): void => {
 
 // Debugger
 // http://localhost:5500/top/projects/calculator/
+
+// To do:
+// [ ] Avoid multiple zeroes
+// [ ] 00
+// [ ] .
+// [ ] Ans
+// [ ] CSS
