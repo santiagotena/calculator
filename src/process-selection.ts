@@ -20,15 +20,12 @@ const isSecondNumber = (): boolean => (memory.secondNumber != undefined);
 
 function processNumber(selectionNumber: number): void {
 
-	if (memory.lastResult != undefined && memory.operator == undefined && memory.secondNumber == undefined) {
+	if (isLastResult() && !isOperator() && !isSecondNumber()) {
 		memory.firstNumber = selectionNumber;
 		memory.displayString = selectionNumber.toString();
-		resetDisplay();
 		displayScreen(memory.displayString);
-		console.table(memory);
 		return ;
 	}
-
 	if (memory.firstNumber == 0 && selectionNumber == 0)
 		return ;
 	else if (memory.firstNumber == 0 && selectionNumber != 0) {
@@ -38,8 +35,7 @@ function processNumber(selectionNumber: number): void {
 		displayScreen(memory.displayString);
 		return ;
 	}
-
-	if (memory.firstNumber == undefined) {
+	if (!isFirstNumber()) {
 		memory.firstNumber = selectionNumber;
 		if (memory.applyNegative == true) {
 			memory.firstNumber = memory.firstNumber * -1;
@@ -47,11 +43,14 @@ function processNumber(selectionNumber: number): void {
 		}
 		memory.displayString = memory.displayString.concat('', selectionNumber.toString());
 	}
-	else if (memory.firstNumber != undefined && memory.operator == undefined) {
-		memory.firstNumber = memory.firstNumber * 10 + selectionNumber;
+	else if (isFirstNumber() && !isOperator()) {
+		if (memory.firstNumber < 0)
+			memory.firstNumber = memory.firstNumber * 10 - selectionNumber;
+		else	
+			memory.firstNumber = memory.firstNumber * 10 + selectionNumber;
 		memory.displayString = memory.displayString.concat('', selectionNumber.toString());
 	}
-	else if (memory.firstNumber != undefined && memory.operator != undefined && memory.secondNumber == undefined) {
+	else if (isFirstNumber() && isOperator() && !isSecondNumber()) {
 		memory.secondNumber = selectionNumber;
 		if (memory.applyNegative == true) {
 			memory.secondNumber = memory.secondNumber * -1;
@@ -59,7 +58,7 @@ function processNumber(selectionNumber: number): void {
 		}
 		memory.displayString = memory.displayString.concat(' ', selectionNumber.toString());
 	}
-	else if (memory.operator != undefined && memory.secondNumber != undefined) {
+	else if (isOperator() && isSecondNumber()) {
 		if (memory.secondNumber == 0 && selectionNumber == 0)
 			return ;
 		else if (memory.secondNumber == 0 && selectionNumber != 0) {
@@ -68,7 +67,10 @@ function processNumber(selectionNumber: number): void {
 			memory.displayString = memory.displayString.concat('', selectionNumber.toString());
 		}
 		else {
-			memory.secondNumber = memory.secondNumber * 10 + selectionNumber;
+			if (memory.secondNumber < 0)
+				memory.secondNumber = memory.secondNumber * 10 - selectionNumber;
+			else	
+				memory.secondNumber = memory.secondNumber * 10 + selectionNumber;
 			memory.displayString = memory.displayString.concat('', selectionNumber.toString());
 		}
 	}
