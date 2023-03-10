@@ -14,13 +14,13 @@ let displayScreen = displayImport.displayScreen;
 
 
 function processNumber(selectionNumber: number): void {
-	if (memory.firstNumber == undefined && selectionNumber == 0)
-	{
-		memory.firstNumber = 0;
-		return ;
-	}
-	if (memory.firstNumber == 0 && selectionNumber == 0)
-		return ;
+	// if (memory.firstNumber == undefined && selectionNumber == 0)
+	// {
+	// 	memory.firstNumber = 0;
+	// 	return ;
+	// }
+	// if (memory.firstNumber == 0 && selectionNumber == 0)
+	// 	return ;
 
 	if (memory.firstNumber == undefined) {
 		memory.firstNumber = selectionNumber;
@@ -43,8 +43,8 @@ function processNumber(selectionNumber: number): void {
 		memory.displayString = memory.displayString.concat(' ', selectionNumber.toString());
 	}
 	else if (memory.secondNumber != undefined && memory.operator != undefined) {
-		if (memory.secondNumber == 0 && selectionNumber == 0)
-			return ;
+		// if (memory.secondNumber == 0 && selectionNumber == 0)
+		// 	return ;
 		memory.secondNumber = memory.secondNumber * 10 + selectionNumber;
 		memory.displayString = memory.displayString.concat('', selectionNumber.toString());
 	}
@@ -107,7 +107,7 @@ function processOperator(selectionType: string): void {
 function processResult(): void {
 	let result: number;
 	let isKeyValid: boolean;
-	
+
 	isKeyValid = false;
 	if (memory.firstNumber != undefined && memory.operator == undefined && memory.secondNumber == undefined)
 	{

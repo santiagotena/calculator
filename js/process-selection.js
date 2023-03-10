@@ -7,12 +7,13 @@ let resetMemory = memoryImport.resetMemory;
 import * as displayImport from './display.js';
 let displayScreen = displayImport.displayScreen;
 function processNumber(selectionNumber) {
-    if (memory.firstNumber == undefined && selectionNumber == 0) {
-        memory.firstNumber = 0;
-        return;
-    }
-    if (memory.firstNumber == 0 && selectionNumber == 0)
-        return;
+    // if (memory.firstNumber == undefined && selectionNumber == 0)
+    // {
+    // 	memory.firstNumber = 0;
+    // 	return ;
+    // }
+    // if (memory.firstNumber == 0 && selectionNumber == 0)
+    // 	return ;
     if (memory.firstNumber == undefined) {
         memory.firstNumber = selectionNumber;
         if (memory.applyNegative == true) {
@@ -34,8 +35,8 @@ function processNumber(selectionNumber) {
         memory.displayString = memory.displayString.concat(' ', selectionNumber.toString());
     }
     else if (memory.secondNumber != undefined && memory.operator != undefined) {
-        if (memory.secondNumber == 0 && selectionNumber == 0)
-            return;
+        // if (memory.secondNumber == 0 && selectionNumber == 0)
+        // 	return ;
         memory.secondNumber = memory.secondNumber * 10 + selectionNumber;
         memory.displayString = memory.displayString.concat('', selectionNumber.toString());
     }
