@@ -5,6 +5,7 @@ export {
 
 import * as memoryImport from './memory.js';
 let memory = memoryImport.memory;
+let oldMemory = memoryImport.memory;
 let resetMemory = memoryImport.resetMemory;
 
 import * as displayImport from './display.js';
@@ -18,7 +19,6 @@ function clear(): void {
 
 function processAns(): void {
 	if (memory.firstNumber == undefined) {
-		
 		// displayScreen(memory.displayString);
 	}
 }
