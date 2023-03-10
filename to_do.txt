@@ -2,10 +2,13 @@ To do:
 
 [x] Chain calculations
 [x] link JS/TS files
-[ ] Avoid multiple zeroes
-	[ ] Zero clears when followed by operator
+[x] Avoid multiple zeroes
 [ ] Ans
 [ ] .
+	[ ] Careful of multiple instances in a number
 [ ] Round long decimals - 2 figures
+[ ] Backspace 
+	Consider oldMemory obj at start of main
+		Disable at fresh session and after pressing equal button
 [ ] Keyboard Support
 [ ] CSS
