@@ -7,6 +7,10 @@ let resetMemory = memoryImport.resetMemory;
 import * as displayImport from './display.js';
 let displayScreen = displayImport.displayScreen;
 let resetDisplay = displayImport.resetDisplay;
+const isLastResult = () => (memory.lastResult != undefined);
+const isFirstNumber = () => (memory.firstNumber != undefined);
+const isOperator = () => (memory.operator != undefined);
+const isSecondNumber = () => (memory.secondNumber != undefined);
 function processNumber(selectionNumber) {
     if (memory.lastResult != undefined && memory.operator == undefined && memory.secondNumber == undefined) {
         memory.firstNumber = selectionNumber;

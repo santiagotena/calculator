@@ -13,6 +13,10 @@ import * as displayImport from './display.js';
 let displayScreen = displayImport.displayScreen;
 let resetDisplay = displayImport.resetDisplay;
 
+const isLastResult = (): boolean => (memory.lastResult != undefined);
+const isFirstNumber = (): boolean => (memory.firstNumber != undefined);
+const isOperator = (): boolean => (memory.operator != undefined);
+const isSecondNumber = (): boolean => (memory.secondNumber != undefined);
 
 function processNumber(selectionNumber: number): void {
 
