@@ -81,24 +81,27 @@ function processNumber(selectionNumber: number): void {
 }
 
 function processOperator(selectionType: string): void {
-	if (memory.firstNumber == undefined || (memory.firstNumber == 0 && memory.operator != undefined)) {
+	if (!isFirstNumber() || (memory.firstNumber == 0 && isOperator())) {
 		if (selectionType == "substract") {
 			memory.applyNegative = true;
 			memory.displayString = "-";
 			displayScreen(memory.displayString);
 			return ;
 		}
-		if (selectionType == "add" && memory.applyNegative == false) {
-			memory.firstNumber = 0;
-			memory.displayString = "0 +";
-		}
-		if (selectionType == "multiply" && memory.applyNegative == false) {
-			memory.firstNumber = 0;
-			memory.displayString = "0 x";
-		}
-		if (selectionType == "divide" && memory.applyNegative == false) {
-			memory.firstNumber = 0;
-			memory.displayString = "0 ÷";
+		if (memory.applyNegative == false)
+		{
+			if (selectionType == "add") {
+				memory.firstNumber = 0;
+				memory.displayString = "0 +";
+			}
+			if (selectionType == "multiply") {
+				memory.firstNumber = 0;
+				memory.displayString = "0 x";
+			}
+			if (selectionType == "divide") {
+				memory.firstNumber = 0;
+				memory.displayString = "0 ÷";
+			}
 		}
 		memory.operator = selectionType;
 		displayScreen(memory.displayString);
