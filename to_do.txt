@@ -2,7 +2,8 @@ To do:
 
 [x] Chain calculations
 [x] link JS/TS files
-[x] Avoid multiple zeroes
+[ ] Avoid multiple zeroes
+	[ ] Zero clears when followed by operator
 [ ] Ans
 [ ] .
 [ ] Round long decimals - 2 figures
