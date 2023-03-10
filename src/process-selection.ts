@@ -106,9 +106,14 @@ function processOperator(selectionType: string): void {
 
 function processResult(): void {
 	let result: number;
-
+	let isKeyValid: boolean;
+	
+	isKeyValid = false;
 	if (memory.firstNumber != undefined && memory.operator == undefined && memory.secondNumber == undefined)
+	{
 		result = memory.firstNumber;
+		isKeyValid = true;
+	}
 	else if (memory.firstNumber != undefined && memory.operator != undefined && memory.secondNumber != undefined)
 	{
 		if (memory.operator == "divide" && memory.secondNumber == 0)
@@ -118,10 +123,14 @@ function processResult(): void {
 			return ;
 		}
 		result = operate(memory.firstNumber, memory.secondNumber, memory.operator);
+		isKeyValid = true;
 	}
-	resetMemory();
-	memory.lastResult = result;
-	memory.firstNumber = result;
-	memory.displayString = result.toString();
-	displayScreen(memory.displayString);
+	if (isKeyValid)
+	{
+		resetMemory();
+		memory.lastResult = result;
+		memory.firstNumber = result;
+		memory.displayString = result.toString();
+		displayScreen(memory.displayString);
+	}
 }
