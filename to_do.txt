@@ -4,6 +4,7 @@ To do:
 [x] link JS/TS files
 [x] Avoid multiple zeroes
 [x] Round long decimals - 2 figures
+[ ] Handle new operations as a chain
 [ ] Backspace 
 	[x] Consider oldMemory obj at start of main
 		[ ] Refactor
