@@ -12,12 +12,14 @@ function divide(a, b) {
     return (a / b);
 }
 function operate(a, b, operation) {
+    let result;
     if (operation == "add")
-        return (add(a, b));
+        result = add(a, b);
     else if (operation == "substract")
-        return (substract(a, b));
+        result = substract(a, b);
     else if (operation == "multiply")
-        return (multiply(a, b));
+        result = multiply(a, b);
     else if (operation == "divide")
-        return (divide(a, b));
+        result = divide(a, b);
+    return (Math.round((result + Number.EPSILON) * 100) / 100);
 }

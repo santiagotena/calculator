@@ -6,7 +6,7 @@ To do:
 [ ] Ans
 [ ] .
 	[ ] Careful of multiple instances in a number
-[ ] Round long decimals - 2 figures
+[x] Round long decimals - 2 figures
 [ ] Backspace 
 	Consider oldMemory obj at start of main
 		Disable at fresh session and after pressing equal button
