@@ -7,7 +7,6 @@ const memory = {
     applyNegative: false,
     displayString: "",
 };
-// Memory //
 function resetMemory() {
     memory.firstNumber = undefined;
     memory.operator = undefined;

@@ -39,7 +39,7 @@ selections.forEach((selection): void => {
 
 // To do:
 // [x] Chain calculations
-// [ ] link JS/TS files
+// [x] link JS/TS files
 // [ ] Avoid multiple zeroes
 // [ ] Ans
 // [ ] .

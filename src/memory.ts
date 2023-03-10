@@ -19,7 +19,6 @@ const memory: {
 	displayString: "",
 };
 
-// Memory //
 function resetMemory(): void {
 	memory.firstNumber = undefined;
 	memory.operator = undefined;

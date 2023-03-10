@@ -1,9 +1,9 @@
 export { processNumber, processOperator, processResult };
+import * as operationsImport from './operations.js';
+let operate = operationsImport.operate;
 import * as memoryImport from './memory.js';
 let memory = memoryImport.memory;
 let resetMemory = memoryImport.resetMemory;
-import * as operationsImport from './operations.js';
-let operate = operationsImport.operate;
 import * as displayImport from './display.js';
 let displayScreen = displayImport.displayScreen;
 function processNumber(selectionNumber) {

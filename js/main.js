@@ -32,7 +32,7 @@ selections.forEach((selection) => {
 // http://localhost:5500/top/projects/calculator/
 // To do:
 // [x] Chain calculations
-// [ ] link JS/TS files
+// [x] link JS/TS files
 // [ ] Avoid multiple zeroes
 // [ ] Ans
 // [ ] .
