@@ -5,12 +5,13 @@ To do:
 [x] Avoid multiple zeroes
 [x] Round long decimals - 2 figures
 [ ] Handle new operations as a chain
-[ ] Backspace 
-	[x] Consider oldMemory obj at start of main
-		[ ] Refactor
-	[ ] Disable at fresh session and after pressing equal button
 [ ] Ans
+[ ] Backspace
 [ ] .
 	[ ] Careful of multiple instances in a number
 [ ] Keyboard Support
 [ ] CSS
+
+Strange cases
+[ ] -79 + 85 = 24 instead of 6
+[ ] 0 - 5 = 0 5

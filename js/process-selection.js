@@ -8,23 +8,19 @@ import * as displayImport from './display.js';
 let displayScreen = displayImport.displayScreen;
 let resetDisplay = displayImport.resetDisplay;
 function processNumber(selectionNumber) {
-    if (memory.firstNumber == undefined && selectionNumber == 0) {
-        memory.firstNumber = 0;
-        memory.displayString = "0";
-        return;
-    }
-    else if (memory.lastResult != undefined && selectionNumber == 0) {
+    if (memory.lastResult != undefined && memory.operator == undefined && memory.secondNumber == undefined) {
+        memory.firstNumber = selectionNumber;
+        memory.displayString = selectionNumber.toString();
         resetDisplay();
-        memory.firstNumber = 0;
-        memory.displayString = "0";
+        displayScreen(memory.displayString);
+        console.table(memory);
         return;
     }
-    else if (memory.firstNumber == 0 && selectionNumber == 0)
+    if (memory.firstNumber == 0 && selectionNumber == 0)
         return;
     else if (memory.firstNumber == 0 && selectionNumber != 0) {
         memory.firstNumber = selectionNumber;
         memory.displayString = memory.displayString.slice(0, -1);
-        displayScreen(memory.displayString);
         memory.displayString = memory.displayString.concat('', selectionNumber.toString());
         displayScreen(memory.displayString);
         return;
@@ -55,7 +51,6 @@ function processNumber(selectionNumber) {
         else if (memory.secondNumber == 0 && selectionNumber != 0) {
             memory.secondNumber = selectionNumber;
             memory.displayString = memory.displayString.slice(0, -1);
-            displayScreen(memory.displayString);
             memory.displayString = memory.displayString.concat('', selectionNumber.toString());
         }
         else {
