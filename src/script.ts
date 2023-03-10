@@ -10,7 +10,7 @@ const memory: {
 	firstNumber: undefined,
 	operator: undefined,
 	secondNumber: undefined,
-    lastResult: 0,
+    lastResult: undefined,
 	applyNegative: false,
 	displayString: "",
 };
@@ -48,7 +48,7 @@ function resetMemory(): void {
 	memory.firstNumber = undefined;
 	memory.operator = undefined;
 	memory.secondNumber = undefined;
-	memory.lastResult = 0;
+	memory.lastResult = undefined;
 	memory.applyNegative = false;
 	memory.displayString = "";
 }
@@ -120,7 +120,7 @@ function processOperator(selectionType: string): void {
 		displayScreen(memory.displayString);
 		return ;
 	}
-	else if (memory.firstNumber != undefined && memory.secondNumber == undefined && memory.operator == undefined) {
+	else if (memory.firstNumber != undefined && memory.operator == undefined && memory.secondNumber == undefined) {
 		if (selectionType == "substract")
 			memory.displayString = memory.displayString.concat('', " -");
 		if (selectionType == "add")
@@ -133,7 +133,7 @@ function processOperator(selectionType: string): void {
 		displayScreen(memory.displayString);
 		return ;
 	}
-	else if (memory.firstNumber != undefined && memory.secondNumber == undefined && memory.operator != undefined) {
+	else if (memory.firstNumber != undefined && memory.operator != undefined && memory.secondNumber == undefined) {
 		memory.displayString = memory.displayString.slice(0, -1);
 		if (selectionType == "substract")
 			memory.displayString = memory.displayString.concat('', "-");
@@ -166,7 +166,9 @@ function processResult(): void {
 	}
 	resetMemory();
 	memory.lastResult = result;
-	displayScreen(result.toString());
+	memory.firstNumber = result;
+	memory.displayString = result.toString();
+	displayScreen(memory.displayString);
 }
 
 function clear(): void {
@@ -202,12 +204,14 @@ selections.forEach((selection): void => {
 	})
 })
 
+///////////
+
 // Debugger
 // http://localhost:5500/top/projects/calculator/
 
 // To do:
+// [x] Chain calculations
 // [ ] Avoid multiple zeroes
-// [ ] 00
 // [ ] .
 // [ ] Ans
 // [ ] CSS
