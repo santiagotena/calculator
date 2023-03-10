@@ -212,6 +212,7 @@ selections.forEach((selection): void => {
 // To do:
 // [x] Chain calculations
 // [ ] Avoid multiple zeroes
-// [ ] .
 // [ ] Ans
+// [ ] .
+// [ ] Keyboard Support
 // [ ] CSS
