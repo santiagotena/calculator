@@ -27,14 +27,3 @@ selections.forEach((selection) => {
         processInput(selection);
     });
 });
-///////////
-// Debugger
-// http://localhost:5500/top/projects/calculator/
-// To do:
-// [x] Chain calculations
-// [x] link JS/TS files
-// [ ] Avoid multiple zeroes
-// [ ] Ans
-// [ ] .
-// [ ] Keyboard Support
-// [ ] CSS
