@@ -26,14 +26,17 @@ function processNumber(selectionNumber: number): void {
 		displayScreen(memory.displayString);
 		return ;
 	}
-	if (memory.firstNumber == 0 && selectionNumber == 0)
-		return ;
-	else if (memory.firstNumber == 0 && selectionNumber != 0) {
-		memory.firstNumber = selectionNumber;
-		memory.displayString = memory.displayString.slice(0, -1);
-		memory.displayString = memory.displayString.concat('', selectionNumber.toString());
-		displayScreen(memory.displayString);
-		return ;
+
+	if (!isOperator() && !isSecondNumber()) {
+		if (memory.firstNumber == 0 && selectionNumber == 0)
+			return ;
+		else if (memory.firstNumber == 0 && selectionNumber != 0) {
+			memory.firstNumber = selectionNumber;
+			memory.displayString = memory.displayString.slice(0, -1);
+			memory.displayString = memory.displayString.concat('', selectionNumber.toString());
+			displayScreen(memory.displayString);
+			return ;
+		}
 	}
 	if (!isFirstNumber()) {
 		memory.firstNumber = selectionNumber;
