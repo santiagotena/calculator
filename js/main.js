@@ -4,6 +4,7 @@ let processOperator = processSelectionImport.processOperator;
 let processResult = processSelectionImport.processResult;
 import * as utilsImport from './utils.js';
 let clear = utilsImport.clear;
+let processAns = utilsImport.processAns;
 function processInput(selection) {
     let selectionType;
     let selectionKey;
@@ -18,7 +19,9 @@ function processInput(selection) {
         processOperator(selectionKey);
     if (selectionKey === "=")
         processResult();
-    if (selectionKey == "CLEAR")
+    if (selectionKey === "Ans")
+        processAns();
+    if (selectionKey === "CLEAR")
         clear();
 }
 let selections = document.querySelectorAll('.key');
