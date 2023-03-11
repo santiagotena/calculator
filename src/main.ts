@@ -47,3 +47,9 @@ selections.forEach((selection): void => {
 		processInput(selection);
 	})
 })
+
+window.addEventListener('keydown', (e): void => {
+	// console.log(e);
+	let key = document.querySelector(`.key[data-key="${e.key}"]`);
+	processInput(key);
+})
