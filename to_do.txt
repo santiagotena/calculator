@@ -18,3 +18,4 @@ Strange cases
 [x] -79 + 85 = 24 instead of 6
 [x] 0 - 5 = 0 5
 [x] Ans = 7 8 yields 8 instead of 78
+[x] Ans = CLEAR -52 displays 52 instead of -52
