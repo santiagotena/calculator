@@ -40,7 +40,7 @@ function processNumber(selectionKey: string): void {
 		else if (memory.firstNumber == 0 && selectionNumber != 0) {
 			memory.firstNumber = selectionNumber;
 			memory.displayString = memory.displayString.slice(0, -1);
-			memory.displayString = memory.displayString.concat('', selectionNumber.toString());
+			memory.displayString = memory.displayString.concat(selectionNumber.toString());
 			displayScreen(memory.displayString);
 			return ;
 		}
@@ -51,14 +51,14 @@ function processNumber(selectionKey: string): void {
 			memory.firstNumber = memory.firstNumber * -1;
 			memory.isNegative = false;
 		}
-		memory.displayString = memory.displayString.concat('', selectionNumber.toString());
+		memory.displayString = memory.displayString.concat(selectionNumber.toString());
 	}
 	else if (!isOperator()) {
 		if (memory.firstNumber < 0)
 			memory.firstNumber = memory.firstNumber * 10 - selectionNumber;
 		else	
 			memory.firstNumber = memory.firstNumber * 10 + selectionNumber;
-		memory.displayString = memory.displayString.concat('', selectionNumber.toString());
+		memory.displayString = memory.displayString.concat(selectionNumber.toString());
 	}
 	else if (!isSecondNumber()) {
 		memory.secondNumber = selectionNumber;
@@ -66,7 +66,7 @@ function processNumber(selectionKey: string): void {
 			memory.secondNumber = memory.secondNumber * -1;
 			memory.isNegative = false;
 		}
-		memory.displayString = memory.displayString.concat(' ', selectionNumber.toString());
+		memory.displayString = memory.displayString.concat(selectionNumber.toString());
 	}
 	else {
 		if (memory.secondNumber == 0 && selectionNumber == 0)
@@ -74,14 +74,14 @@ function processNumber(selectionKey: string): void {
 		else if (memory.secondNumber == 0 && selectionNumber != 0) {
 			memory.secondNumber = selectionNumber;
 			memory.displayString = memory.displayString.slice(0, -1);
-			memory.displayString = memory.displayString.concat('', selectionNumber.toString());
+			memory.displayString = memory.displayString.concat(selectionNumber.toString());
 		}
 		else {
 			if (memory.secondNumber < 0)
 				memory.secondNumber = memory.secondNumber * 10 - selectionNumber;
 			else	
 				memory.secondNumber = memory.secondNumber * 10 + selectionNumber;
-			memory.displayString = memory.displayString.concat('', selectionNumber.toString());
+			memory.displayString = memory.displayString.concat(selectionNumber.toString());
 		}
 	}
 	displayScreen(memory.displayString);
@@ -117,20 +117,20 @@ function processOperator(selectionType: string): void {
 	else if (isOperator() && !isSecondNumber()) {
 		if (selectionType == "-") {
 			memory.isNegative = true;
-			memory.displayString = memory.displayString.concat('', " -");
+			memory.displayString = memory.displayString.concat("-");
 			displayScreen(memory.displayString);
 			return ;
 		}
 	}
 	else if (!isOperator()) {
 		if (selectionType == "-")
-			memory.displayString = memory.displayString.concat('', " -");
+			memory.displayString = memory.displayString.concat(" - ");
 		if (selectionType == "+")
-			memory.displayString = memory.displayString.concat('', " +");
+			memory.displayString = memory.displayString.concat(" + ");
 		if (selectionType == "*")
-			memory.displayString = memory.displayString.concat('', " x");
+			memory.displayString = memory.displayString.concat(" x ");
 		if (selectionType == "/")
-			memory.displayString = memory.displayString.concat('', " ÷");
+			memory.displayString = memory.displayString.concat(" ÷ ");
 		memory.operator = selectionType;
 		displayScreen(memory.displayString);
 		return ;
@@ -138,13 +138,13 @@ function processOperator(selectionType: string): void {
 	else if (!isSecondNumber()) {
 		memory.displayString = memory.displayString.slice(0, -1);
 		if (selectionType == "-")
-			memory.displayString = memory.displayString.concat('', "-");
+			memory.displayString = memory.displayString.concat("-");
 		if (selectionType == "+")
-			memory.displayString = memory.displayString.concat('', "+");
+			memory.displayString = memory.displayString.concat("+");
 		if (selectionType == "*")
-			memory.displayString = memory.displayString.concat('', "x");
+			memory.displayString = memory.displayString.concat("x");
 		if (selectionType == "/")
-			memory.displayString = memory.displayString.concat('', "÷");
+			memory.displayString = memory.displayString.concat("÷");
 		memory.operator = selectionType;
 		displayScreen(memory.displayString);
 		return ;
