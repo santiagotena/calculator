@@ -22,15 +22,13 @@ const isOperator = (): boolean => (memory.operator != undefined);
 const isSecondNumber = (): boolean => (memory.secondNumber != undefined);
 
 function processNumber(selectionNumber: number): void {
-
 	if (isLastResult() && !isOperator() && !isSecondNumber()) {
 		memory.firstNumber = selectionNumber;
 		memory.displayString = selectionNumber.toString();
 		displayScreen(memory.displayString);
 		return ;
 	}
-
-	if (!isOperator() && !isSecondNumber()) {
+	if (!isFirstNumber() && !isOperator() && !isSecondNumber()) {
 		if (memory.firstNumber == 0 && selectionNumber == 0)
 			return ;
 		else if (memory.firstNumber == 0 && selectionNumber != 0) {

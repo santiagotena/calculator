@@ -17,7 +17,7 @@ function processNumber(selectionNumber) {
         displayScreen(memory.displayString);
         return;
     }
-    if (!isOperator() && !isSecondNumber()) {
+    if (!isFirstNumber() && !isOperator() && !isSecondNumber()) {
         if (memory.firstNumber == 0 && selectionNumber == 0)
             return;
         else if (memory.firstNumber == 0 && selectionNumber != 0) {
