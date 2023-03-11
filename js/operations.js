@@ -13,13 +13,13 @@ function divide(a, b) {
 }
 function operate(a, b, operation) {
     let result;
-    if (operation == "add")
+    if (operation == "+")
         result = add(a, b);
-    else if (operation == "substract")
+    else if (operation == "-")
         result = substract(a, b);
-    else if (operation == "multiply")
+    else if (operation == "*")
         result = multiply(a, b);
-    else if (operation == "divide")
+    else if (operation == "/")
         result = divide(a, b);
     return (Math.round((result + Number.EPSILON) * 100) / 100);
 }

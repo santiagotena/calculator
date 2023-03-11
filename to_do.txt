@@ -1,12 +1,11 @@
 To do:
-
 [x] Chain calculations
-[x] link JS/TS files
+[x] Link JS/TS files
 [x] Avoid multiple zeroes
 [x] Round long decimals - 2 figures
 [x] Handle new operations as a chain
 [x] Ans
-[ ] Keyboard Support
+[x] Keyboard Support
 [ ] .
 	[ ] Careful of multiple instances in a number
 [ ] Backspace

@@ -19,7 +19,7 @@ function processInput(selection: Element): void {
 	
 	selectionType = selection.getAttribute('data-type');
 	selectionKey = selection.getAttribute('data-key');
-	if (selectionKey === "DEL") {
+	if (selectionKey === "Backspace") {
 		// Make function of this in utils
 		copyFromOldMemory();
 		displayScreen(memory.displayString);
@@ -33,11 +33,11 @@ function processInput(selection: Element): void {
 	}
 	else if (selectionType === "operator")
 		processOperator(selectionKey);
-	else if (selectionKey === "=")
+	else if (selectionKey === "Enter")
 		processResult();
-	else if (selectionKey === "Ans")
+	else if (selectionKey === "a")
 		processAns();
-	else if (selectionKey === "CLEAR")
+	else if (selectionKey === "Clear")
 		clear();
 }
 
@@ -49,7 +49,9 @@ selections.forEach((selection): void => {
 })
 
 window.addEventListener('keydown', (e): void => {
-	// console.log(e);
-	let key = document.querySelector(`.key[data-key="${e.key}"]`);
-	processInput(key);
+	try {
+		let key = document.querySelector(`.key[data-key="${e.key}"]`);
+		processInput(key);
+	} catch (err) {
+	}
 })

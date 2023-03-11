@@ -71,22 +71,22 @@ function processNumber(selectionNumber) {
 }
 function processOperator(selectionType) {
     if (!isFirstNumber() || (memory.firstNumber == 0 && isOperator())) {
-        if (selectionType == "substract") {
+        if (selectionType == "-") {
             memory.applyNegative = true;
             memory.displayString = "-";
             displayScreen(memory.displayString);
             return;
         }
         if (memory.applyNegative == false) {
-            if (selectionType == "add") {
+            if (selectionType == "+") {
                 memory.firstNumber = 0;
                 memory.displayString = "0 +";
             }
-            if (selectionType == "multiply") {
+            if (selectionType == "*") {
                 memory.firstNumber = 0;
                 memory.displayString = "0 x";
             }
-            if (selectionType == "divide") {
+            if (selectionType == "/") {
                 memory.firstNumber = 0;
                 memory.displayString = "0 ÷";
             }
@@ -96,13 +96,13 @@ function processOperator(selectionType) {
         return;
     }
     else if (isFirstNumber() && !isOperator() && !isSecondNumber()) {
-        if (selectionType == "substract")
+        if (selectionType == "-")
             memory.displayString = memory.displayString.concat('', " -");
-        if (selectionType == "add")
+        if (selectionType == "+")
             memory.displayString = memory.displayString.concat('', " +");
-        if (selectionType == "multiply")
+        if (selectionType == "*")
             memory.displayString = memory.displayString.concat('', " x");
-        if (selectionType == "divide")
+        if (selectionType == "/")
             memory.displayString = memory.displayString.concat('', " ÷");
         memory.operator = selectionType;
         displayScreen(memory.displayString);
@@ -110,13 +110,13 @@ function processOperator(selectionType) {
     }
     else if (isFirstNumber() && isOperator() && !isSecondNumber()) {
         memory.displayString = memory.displayString.slice(0, -1);
-        if (selectionType == "substract")
+        if (selectionType == "-")
             memory.displayString = memory.displayString.concat('', "-");
-        if (selectionType == "add")
+        if (selectionType == "+")
             memory.displayString = memory.displayString.concat('', "+");
-        if (selectionType == "multiply")
+        if (selectionType == "*")
             memory.displayString = memory.displayString.concat('', "x");
-        if (selectionType == "divide")
+        if (selectionType == "/")
             memory.displayString = memory.displayString.concat('', "÷");
         memory.operator = selectionType;
         displayScreen(memory.displayString);
@@ -132,7 +132,7 @@ function processResult() {
         isKeyValid = true;
     }
     else if (memory.firstNumber != undefined && memory.operator != undefined && memory.secondNumber != undefined) {
-        if (memory.operator == "divide" && memory.secondNumber == 0) {
+        if (memory.operator == "/" && memory.secondNumber == 0) {
             displayScreen("Wait. That's illegal.");
             resetMemory();
             return;

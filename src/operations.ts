@@ -21,13 +21,13 @@ function divide(a: number, b: number): number {
 function operate(a: number, b: number, operation: string): number {
 	let result: number;
 
-	if (operation == "add")
+	if (operation == "+")
 		result = add(a, b);
-	else if (operation == "substract")
+	else if (operation == "-")
 		result = substract(a, b);
-	else if (operation == "multiply")
+	else if (operation == "*")
 		result = multiply(a, b);
-	else if (operation == "divide")
+	else if (operation == "/")
 		result = divide(a, b);
 	return (Math.round((result + Number.EPSILON) * 100) / 100);
 }
