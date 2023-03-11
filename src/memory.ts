@@ -10,7 +10,7 @@ const memory: {
 	operator: string,
 	secondNumber: number,
 	lastResult: number,
-	applyNegative: boolean, // Rename to isNegative
+	isNegative: boolean, // Rename to isNegative
 	usedAns: boolean,
 	usedEqual: boolean,
 	displayString: string
@@ -19,7 +19,7 @@ const memory: {
 	operator: undefined,
 	secondNumber: undefined,
     lastResult: undefined,
-	applyNegative: false,
+	isNegative: false,
 	usedAns: false,
 	usedEqual: false,
 	displayString: "",
@@ -30,7 +30,7 @@ const oldMemory: {
 	operator: string,
 	secondNumber: number,
 	lastResult: number,
-	applyNegative: boolean,
+	isNegative: boolean,
 	usedAns: boolean,
 	usedEqual: boolean,
 	displayString: string
@@ -39,7 +39,7 @@ const oldMemory: {
 	operator: undefined,
 	secondNumber: undefined,
     lastResult: undefined,
-	applyNegative: false,
+	isNegative: false,
 	usedAns: false,
 	usedEqual: false,
 	displayString: "",
