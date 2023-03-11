@@ -39,14 +39,14 @@ function processNumber(selectionNumber) {
         }
         memory.displayString = memory.displayString.concat('', selectionNumber.toString());
     }
-    else if (isFirstNumber() && !isOperator()) {
+    else if (!isOperator()) {
         if (memory.firstNumber < 0)
             memory.firstNumber = memory.firstNumber * 10 - selectionNumber;
         else
             memory.firstNumber = memory.firstNumber * 10 + selectionNumber;
         memory.displayString = memory.displayString.concat('', selectionNumber.toString());
     }
-    else if (isFirstNumber() && isOperator() && !isSecondNumber()) {
+    else if (!isSecondNumber()) {
         memory.secondNumber = selectionNumber;
         if (memory.applyNegative == true) {
             memory.secondNumber = memory.secondNumber * -1;
@@ -54,7 +54,7 @@ function processNumber(selectionNumber) {
         }
         memory.displayString = memory.displayString.concat(' ', selectionNumber.toString());
     }
-    else if (isOperator() && isSecondNumber()) {
+    else {
         if (memory.secondNumber == 0 && selectionNumber == 0)
             return;
         else if (memory.secondNumber == 0 && selectionNumber != 0) {
