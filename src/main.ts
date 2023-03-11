@@ -15,7 +15,6 @@ let processAns = utilsImport.processAns;
 function processInput(selection: Element): void {
 	let selectionType: string;
 	let selectionKey: string;
-	let selectionNumber: number;
 	
 	selectionType = selection.getAttribute('data-type');
 	selectionKey = selection.getAttribute('data-key');
@@ -26,11 +25,13 @@ function processInput(selection: Element): void {
 		return ;
 	}
 	copyToOldMemory();
+
+	// if (selectionType === "number" && memory.isDecimal)
+	// 	processDecimal();
 	if (selectionType === "number")
-	{
-		selectionNumber = +selectionKey;
-		processNumber(selectionNumber);
-	}
+		processNumber(selectionKey);
+	// else if(selectionType === ".")
+	// 	addDot();
 	else if (selectionType === "operator")
 		processOperator(selectionKey);
 	else if (selectionKey === "Enter")

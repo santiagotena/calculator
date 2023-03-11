@@ -10,7 +10,9 @@ const isLastResult = () => (memory.lastResult != undefined);
 const isFirstNumber = () => (memory.firstNumber != undefined);
 const isOperator = () => (memory.operator != undefined);
 const isSecondNumber = () => (memory.secondNumber != undefined);
-function processNumber(selectionNumber) {
+function processNumber(selectionKey) {
+    let selectionNumber;
+    selectionNumber = selectionKey.toString();
     if (!isOperator() && !isSecondNumber() && (memory.usedAns || memory.usedEqual)) {
         memory.firstNumber = undefined;
         memory.displayString = "";

@@ -21,7 +21,10 @@ const isFirstNumber = (): boolean => (memory.firstNumber != undefined);
 const isOperator = (): boolean => (memory.operator != undefined);
 const isSecondNumber = (): boolean => (memory.secondNumber != undefined);
 
-function processNumber(selectionNumber: number): void {
+function processNumber(selectionKey: string): void {
+	let selectionNumber;
+
+	selectionNumber = selectionKey.toString();
 	if (!isOperator() && !isSecondNumber() && (memory.usedAns || memory.usedEqual)) {
 		memory.firstNumber = undefined;
 		memory.displayString = "";
