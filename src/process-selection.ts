@@ -116,6 +116,8 @@ function processOperator(selectionType: string): void {
 	}
 	else if (isOperator() && !isSecondNumber()) {
 		if (selectionType == "-") {
+			if (memory.isNegative)
+				return ;
 			memory.isNegative = true;
 			memory.displayString = memory.displayString.concat("-");
 			displayScreen(memory.displayString);
