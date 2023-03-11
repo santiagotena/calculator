@@ -12,7 +12,7 @@ const isOperator = () => (memory.operator != undefined);
 const isSecondNumber = () => (memory.secondNumber != undefined);
 function processNumber(selectionKey) {
     let selectionNumber;
-    selectionNumber = selectionKey.toString();
+    selectionNumber = +selectionKey;
     if (!isOperator() && !isSecondNumber() && (memory.usedAns || memory.usedEqual)) {
         memory.firstNumber = undefined;
         memory.displayString = "";
@@ -66,9 +66,9 @@ function processNumber(selectionKey) {
         }
         else {
             if (memory.secondNumber < 0)
-                memory.secondNumber = memory.secondNumber * 10 - selectionNumber;
+                memory.secondNumber = (memory.secondNumber * 10 - selectionNumber);
             else
-                memory.secondNumber = memory.secondNumber * 10 + selectionNumber;
+                memory.secondNumber = (memory.secondNumber * 10) + selectionNumber;
             memory.displayString = memory.displayString.concat('', selectionNumber.toString());
         }
     }

@@ -22,9 +22,9 @@ const isOperator = (): boolean => (memory.operator != undefined);
 const isSecondNumber = (): boolean => (memory.secondNumber != undefined);
 
 function processNumber(selectionKey: string): void {
-	let selectionNumber;
+	let selectionNumber: number;
 
-	selectionNumber = selectionKey.toString();
+	selectionNumber = +selectionKey;
 	if (!isOperator() && !isSecondNumber() && (memory.usedAns || memory.usedEqual)) {
 		memory.firstNumber = undefined;
 		memory.displayString = "";
