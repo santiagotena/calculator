@@ -7,7 +7,7 @@ To do:
 [x] Ans
 	[x] Strange case
 [x] Keyboard Support
-[ ] Second number is negative for mult and div
+[x] Second number is negative for mult and div
 [ ] .
 	[ ] Careful of multiple instances in a number
 [ ] Backspace
