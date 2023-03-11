@@ -13,6 +13,7 @@ To do:
 	[ ] Backspace Improve to many clicks
 	[ ] Stop at beginning and reset display
 [ ] CSS
+[ ] Refactor
 
 Strange cases
 [x] -79 + 85 = 24 instead of 6
