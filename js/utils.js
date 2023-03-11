@@ -21,16 +21,19 @@ function processAns() {
     if (!isFirstNumber()) {
         memory.firstNumber = memory.lastResult;
         memory.displayString = "Ans";
+        memory.usedAns = true;
         displayScreen(memory.displayString);
     }
     else if (isFirstNumber() && isOperator() && !isSecondNumber()) {
         memory.secondNumber = memory.lastResult;
         memory.displayString = memory.displayString.concat(" Ans");
+        memory.usedAns = true;
         displayScreen(memory.displayString);
     }
     else if (isLastResult() && !isOperator() && !isSecondNumber()) {
         memory.firstNumber = memory.lastResult;
         memory.displayString = "Ans";
+        memory.usedAns = true;
         displayScreen(memory.displayString);
     }
 }

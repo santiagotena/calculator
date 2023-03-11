@@ -5,6 +5,7 @@ const memory = {
     secondNumber: undefined,
     lastResult: undefined,
     applyNegative: false,
+    usedAns: false,
     displayString: "",
 };
 const oldMemory = {
