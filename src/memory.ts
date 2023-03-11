@@ -31,6 +31,8 @@ const oldMemory: {
 	secondNumber: number,
 	lastResult: number,
 	applyNegative: boolean,
+	usedAns: boolean,
+	usedEqual: boolean,
 	displayString: string
 } = {
 	firstNumber: undefined,
@@ -38,34 +40,29 @@ const oldMemory: {
 	secondNumber: undefined,
     lastResult: undefined,
 	applyNegative: false,
+	usedAns: false,
+	usedEqual: false,
 	displayString: "",
 };
 
 function resetMemory(): void {
-	memory.firstNumber = undefined;
-	memory.operator = undefined;
-	memory.secondNumber = undefined;
-	memory.lastResult = undefined;
-	memory.applyNegative = false;
-	memory.displayString = "";
+	for (let key in memory) {
+		if (typeof memory[key] == "boolean")
+			memory[key] = false;
+		else
+			memory[key] = undefined;
+		memory.displayString = "";
+	}
 }
 
 function copyFromOldMemory(): void {
-	// Use for loop
-	memory.firstNumber = oldMemory.firstNumber;
-	memory.operator = oldMemory.operator;
-	memory.secondNumber = oldMemory.secondNumber;
-	memory.lastResult = oldMemory.lastResult;
-	memory.applyNegative = oldMemory.applyNegative
-	memory.displayString = oldMemory.displayString;
+	for (let key in memory) {
+		memory[key] = oldMemory[key];
+	}
 }
 
 function copyToOldMemory(): void {
-	// Use for loop
-	oldMemory.firstNumber = memory.firstNumber;
-	oldMemory.operator = memory.operator;
-	oldMemory.secondNumber = memory.secondNumber;
-	oldMemory.lastResult = memory.lastResult;
-	oldMemory.applyNegative = memory.applyNegative
-	oldMemory.displayString = memory.displayString;
+	for (let key in memory) {
+		oldMemory[key] = memory[key];
+	}
 }
