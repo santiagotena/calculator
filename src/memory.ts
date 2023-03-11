@@ -10,7 +10,7 @@ const memory: {
 	operator: string,
 	secondNumber: number,
 	lastResult: number,
-	isNegative: boolean, // Rename to isNegative
+	isNegative: boolean,
 	usedAns: boolean,
 	usedEqual: boolean,
 	displayString: string
