@@ -12,6 +12,7 @@ const memory: {
 	lastResult: number,
 	applyNegative: boolean,
 	usedAns: boolean,
+	usedEqual: boolean,
 	displayString: string
 } = {
 	firstNumber: undefined,
@@ -20,6 +21,7 @@ const memory: {
     lastResult: undefined,
 	applyNegative: false,
 	usedAns: false,
+	usedEqual: false,
 	displayString: "",
 };
 

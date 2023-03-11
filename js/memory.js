@@ -6,6 +6,7 @@ const memory = {
     lastResult: undefined,
     applyNegative: false,
     usedAns: false,
+    usedEqual: false,
     displayString: "",
 };
 const oldMemory = {
