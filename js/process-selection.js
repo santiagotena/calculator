@@ -1,4 +1,4 @@
-export { processNumber, processOperator, processResult };
+export { processNumber, processOperator, processResult, isLastResult, isFirstNumber, isOperator, isSecondNumber };
 import * as operationsImport from './operations.js';
 let operate = operationsImport.operate;
 import * as memoryImport from './memory.js';

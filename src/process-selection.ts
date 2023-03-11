@@ -1,7 +1,11 @@
 export {
 	processNumber,
 	processOperator,
-	processResult
+	processResult,
+	isLastResult,
+	isFirstNumber,
+	isOperator,
+	isSecondNumber
 };
 
 import * as operationsImport from './operations.js';
