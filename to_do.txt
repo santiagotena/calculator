@@ -4,8 +4,8 @@ To do:
 [x] Avoid multiple zeroes
 [x] Round long decimals - 2 figures
 [x] Handle new operations as a chain
-[ ] Ans
-	[ ] Strange case
+[x] Ans
+	[x] Strange case
 [x] Keyboard Support
 [ ] .
 	[ ] Careful of multiple instances in a number
@@ -17,4 +17,4 @@ To do:
 Strange cases
 [x] -79 + 85 = 24 instead of 6
 [x] 0 - 5 = 0 5
-[ ] Ans = 7 8 yields 8 instead of 78
+[x] Ans = 7 8 yields 8 instead of 78
