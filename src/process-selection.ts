@@ -111,7 +111,7 @@ function processOperator(selectionType: string): void {
 		displayScreen(memory.displayString);
 		return ;
 	}
-	else if (isFirstNumber() && !isOperator() && !isSecondNumber()) {
+	else if (!isOperator()) {
 		if (selectionType == "-")
 			memory.displayString = memory.displayString.concat('', " -");
 		if (selectionType == "+")
@@ -124,7 +124,7 @@ function processOperator(selectionType: string): void {
 		displayScreen(memory.displayString);
 		return ;
 	}
-	else if (isFirstNumber() && isOperator() && !isSecondNumber()) {
+	else if (!isSecondNumber()) {
 		memory.displayString = memory.displayString.slice(0, -1);
 		if (selectionType == "-")
 			memory.displayString = memory.displayString.concat('', "-");
