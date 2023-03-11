@@ -66,9 +66,9 @@ function processNumber(selectionKey) {
         }
         else {
             if (memory.secondNumber < 0)
-                memory.secondNumber = (memory.secondNumber * 10 - selectionNumber);
+                memory.secondNumber = memory.secondNumber * 10 - selectionNumber;
             else
-                memory.secondNumber = (memory.secondNumber * 10) + selectionNumber;
+                memory.secondNumber = memory.secondNumber * 10 + selectionNumber;
             memory.displayString = memory.displayString.concat('', selectionNumber.toString());
         }
     }
