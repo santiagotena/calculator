@@ -5,15 +5,14 @@ To do:
 [x] Avoid multiple zeroes
 [x] Round long decimals - 2 figures
 [x] Handle new operations as a chain
-[ ] Ans
+[x] Ans
+[ ] Keyboard Support
 [ ] .
 	[ ] Careful of multiple instances in a number
-[ ] Keyboard Support
-[ ] CSS
 [ ] Backspace
+	[ ] Backspace Improve to many clicks
 	[ ] Stop at beginning and reset display
-
-[ ] Backspace Improve to many clicks
+[ ] CSS
 
 Strange cases
 [x] -79 + 85 = 24 instead of 6
