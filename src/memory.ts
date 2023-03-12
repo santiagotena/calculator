@@ -17,7 +17,8 @@ interface MemoryInterface {
 	usedAns: boolean,
 	usedEqual: boolean,
 	displayString: string,
-	memorySteps: number
+	memorySteps: number,
+	reachedStart: boolean
 }
 
 const memory: MemoryInterface = {
@@ -32,6 +33,7 @@ const memory: MemoryInterface = {
 	usedEqual: false,
 	displayString: "",
 	memorySteps: 1,
+	reachedStart: false,
 }
 
 const backupMemory: MemoryInterface = {
@@ -46,6 +48,7 @@ const backupMemory: MemoryInterface = {
 	usedEqual: false,
 	displayString: "",
 	memorySteps: 1,
+	reachedStart: false,
 }
 
 let memoryHistory = [memory];
@@ -58,13 +61,16 @@ function resetMemory(): void {
 function copyToHistory(): void {
 	for (let key in memory)
 		memoryHistory[memory.memorySteps - 1][key]= memory[key];
+	memoryHistory.push(memory);
 }
 
 function copyFromHistory(): void {
 	for (let key in memory)
 		memory[key]= memoryHistory[memory.memorySteps - 1][key];
-	if (memory.memorySteps == 1)
+	if (memory.memorySteps == 1) {
 		memory.displayString = "0";
+		memory.reachedStart = true;
+	}
 	if (memory.memorySteps > 1)
 		memory.memorySteps--;
 }

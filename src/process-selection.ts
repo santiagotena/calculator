@@ -27,7 +27,7 @@ function processNumber(selectionKey: string): void {
 	let selectionNumber: number;
 
 	selectionNumber = +selectionKey;
-	if (!isOperator() && !isSecondNumber() && (memory.usedAns || memory.usedEqual)) {
+	if (!isOperator() && !isSecondNumber() && (memory.usedAns || memory.usedEqual || memory.reachedStart)) {
 		memory.firstNumber = undefined;
 		memory.displayString = "";
 		displayScreen(memory.displayString);
@@ -35,6 +35,8 @@ function processNumber(selectionKey: string): void {
 			memory.usedAns = false;
 		if (memory.usedEqual)
 			memory.usedEqual = false;
+		if (memory.reachedStart)
+			memory.reachedStart = false;
 	}
 	if (isFirstNumber() && !isOperator() && !isSecondNumber()) {
 		if (memory.firstNumber == 0 && selectionNumber == 0)
@@ -228,7 +230,7 @@ function processDecimal(selectionKey: string): void {
 function addDot(): void {
 	if (memory.isDecimal)
 		return ;
-	if (!isOperator() && !isSecondNumber() && (memory.usedAns || memory.usedEqual)) {
+	if (!isOperator() && !isSecondNumber() && (memory.usedAns || memory.usedEqual || memory.reachedStart)) {
 		memory.displayString = "";
 		memory.firstNumber = 0;
 		memory.displayString = memory.displayString.concat("0.");

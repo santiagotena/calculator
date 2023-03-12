@@ -11,6 +11,7 @@ const memory = {
     usedEqual: false,
     displayString: "",
     memorySteps: 1,
+    reachedStart: false,
 };
 const backupMemory = {
     firstNumber: undefined,
@@ -24,6 +25,7 @@ const backupMemory = {
     usedEqual: false,
     displayString: "",
     memorySteps: 1,
+    reachedStart: false,
 };
 let memoryHistory = [memory];
 function resetMemory() {
@@ -33,12 +35,15 @@ function resetMemory() {
 function copyToHistory() {
     for (let key in memory)
         memoryHistory[memory.memorySteps - 1][key] = memory[key];
+    memoryHistory.push(memory);
 }
 function copyFromHistory() {
     for (let key in memory)
         memory[key] = memoryHistory[memory.memorySteps - 1][key];
-    if (memory.memorySteps == 1)
+    if (memory.memorySteps == 1) {
         memory.displayString = "0";
+        memory.reachedStart = true;
+    }
     if (memory.memorySteps > 1)
         memory.memorySteps--;
 }
