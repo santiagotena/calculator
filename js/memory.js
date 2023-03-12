@@ -37,6 +37,8 @@ function copyToHistory() {
 function copyFromHistory() {
     for (let key in memory)
         memory[key] = memoryHistory[memory.memorySteps - 1][key];
+    if (memory.memorySteps == 1)
+        memory.displayString = "0";
     if (memory.memorySteps > 1)
         memory.memorySteps--;
 }
