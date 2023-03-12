@@ -6,9 +6,11 @@ const memory = {
     lastResult: undefined,
     isNegative: false,
     isDecimal: false,
+    decimalSpaces: 0,
     usedAns: false,
     usedEqual: false,
     displayString: "",
+    memorySteps: 0,
 };
 const oldMemory = {
     firstNumber: undefined,
@@ -17,9 +19,11 @@ const oldMemory = {
     lastResult: undefined,
     isNegative: false,
     isDecimal: false,
+    decimalSpaces: 0,
     usedAns: false,
     usedEqual: false,
     displayString: "",
+    memorySteps: 0,
 };
 function resetMemory() {
     for (let key in memory) {
@@ -28,6 +32,8 @@ function resetMemory() {
         else
             memory[key] = undefined;
         memory.displayString = "";
+        memory.decimalSpaces = 0;
+        memory.memorySteps = 0;
     }
 }
 function copyFromOldMemory() {

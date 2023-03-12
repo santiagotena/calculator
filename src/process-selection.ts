@@ -2,6 +2,7 @@ export {
 	processNumber,
 	processOperator,
 	processResult,
+	processDecimal,
 	addDot,
 	isLastResult,
 	isFirstNumber,
@@ -186,6 +187,10 @@ function processResult(): void {
 	}
 }
 
+function processDecimal(): void {
+
+}
+
 function addDot(): void {
 	// if (memory.isDecimal)
 	// 	return ;
@@ -193,5 +198,6 @@ function addDot(): void {
 	// if ()
 	// memory.displayString = memory.displayString.concat(".");
 	// memory.isDecimal = true;
+	// memory.decimalSpaces++;
 	// displayScreen(memory.displayString);
 }

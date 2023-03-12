@@ -12,9 +12,11 @@ const memory: {
 	lastResult: number,
 	isNegative: boolean,
 	isDecimal: boolean,
+	decimalSpaces: number,
 	usedAns: boolean,
 	usedEqual: boolean,
-	displayString: string
+	displayString: string,
+	memorySteps: number
 } = {
 	firstNumber: undefined,
 	operator: undefined,
@@ -22,9 +24,11 @@ const memory: {
     lastResult: undefined,
 	isNegative: false,
 	isDecimal: false,
+	decimalSpaces: 0,
 	usedAns: false,
 	usedEqual: false,
 	displayString: "",
+	memorySteps: 0,
 };
 
 const oldMemory: {
@@ -34,9 +38,11 @@ const oldMemory: {
 	lastResult: number,
 	isNegative: boolean,
 	isDecimal: boolean,
+	decimalSpaces: number,
 	usedAns: boolean,
 	usedEqual: boolean,
-	displayString: string
+	displayString: string,
+	memorySteps: number
 } = {
 	firstNumber: undefined,
 	operator: undefined,
@@ -44,9 +50,11 @@ const oldMemory: {
     lastResult: undefined,
 	isNegative: false,
 	isDecimal: false,
+	decimalSpaces: 0,
 	usedAns: false,
 	usedEqual: false,
 	displayString: "",
+	memorySteps: 0,
 };
 
 function resetMemory(): void {
@@ -56,6 +64,8 @@ function resetMemory(): void {
 		else
 			memory[key] = undefined;
 		memory.displayString = "";
+		memory.decimalSpaces = 0;
+		memory.memorySteps = 0;
 	}
 }
 

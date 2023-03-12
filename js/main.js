@@ -6,6 +6,7 @@ import * as processSelectionImport from './process-selection.js';
 let processNumber = processSelectionImport.processNumber;
 let processOperator = processSelectionImport.processOperator;
 let processResult = processSelectionImport.processResult;
+let processDecimal = processSelectionImport.processDecimal;
 let addDot = processSelectionImport.addDot;
 import * as displayImport from './display.js';
 let displayScreen = displayImport.displayScreen;
@@ -24,9 +25,9 @@ function processInput(selection) {
         return;
     }
     copyToOldMemory();
-    // if (selectionType === "number" && memory.isDecimal)
-    // 	processDecimal();
-    if (selectionType === "number")
+    if (selectionType === "number" && memory.isDecimal)
+        processDecimal();
+    else if (selectionType === "number") // Reset decimal bool - isfirst isoperator issecond
         processNumber(selectionKey);
     else if (selectionType === ".")
         addDot();
