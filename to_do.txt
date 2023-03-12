@@ -12,7 +12,8 @@ To do:
 	[ ] Careful of multiple instances in a number
 [ ] Backspace
 	[ ] Backspace Improve to many clicks
-	[ ] Stop at beginning and reset display
+		[ ] Count successful inputs from 0 to n-1
+		[ ] Stop at beginning and reset display
 [ ] CSS
 [ ] Refactor
 
