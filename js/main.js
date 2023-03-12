@@ -29,10 +29,10 @@ function processInput(selection) {
         processDecimal();
     else if (selectionType === "number") // Reset decimal bool - isfirst isoperator issecond
         processNumber(selectionKey);
-    else if (selectionType === ".")
-        addDot();
     else if (selectionType === "operator")
         processOperator(selectionKey);
+    else if (selectionKey === ".")
+        addDot();
     else if (selectionKey === "Enter")
         processResult();
     else if (selectionKey === "a")
