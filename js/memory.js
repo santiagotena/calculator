@@ -33,9 +33,9 @@ function resetMemory() {
         memory[key] = backupMemory[key];
 }
 function copyToHistory() {
+    memoryHistory.push(memory);
     for (let key in memory)
         memoryHistory[memory.memorySteps - 1][key] = memory[key];
-    memoryHistory.push(memory);
 }
 function copyFromHistory() {
     for (let key in memory)
