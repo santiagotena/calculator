@@ -175,6 +175,11 @@ function processDecimal(selectionKey) {
         else
             memory.firstNumber = memory.firstNumber + selectionNumber / Math.pow(10, memory.decimalSpaces);
         memory.firstNumber = Math.round((memory.firstNumber + Number.EPSILON) * 100) / 100;
+        if (memory.isNegative == true) {
+            memory.firstNumber = memory.firstNumber * -1;
+            if (memory.firstNumber != 0)
+                memory.isNegative = false;
+        }
         memory.displayString = memory.displayString.concat(selectionNumber.toString());
     }
     else if (isFirstNumber() && isOperator() && isSecondNumber()) {
@@ -183,6 +188,11 @@ function processDecimal(selectionKey) {
         else
             memory.secondNumber = memory.secondNumber + selectionNumber / Math.pow(10, memory.decimalSpaces);
         memory.secondNumber = Math.round((memory.secondNumber + Number.EPSILON) * 100) / 100;
+        if (memory.isNegative == true) {
+            memory.secondNumber = memory.secondNumber * -1;
+            if (memory.secondNumber != 0)
+                memory.isNegative = false;
+        }
         memory.displayString = memory.displayString.concat(selectionNumber.toString());
     }
     memory.decimalSpaces++;
