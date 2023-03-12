@@ -12,8 +12,12 @@ To do:
 	[x] Careful of multiple instances in a number
 [ ] Backspace
 	[ ] Backspace Improve to many clicks
-		[ ] Count successful inputs from 0 to n-1
-		[ ] Stop at beginning of chains and reset display
+		[x] Create a memory Interface
+		[ ] Create history as an array of memory objects
+		[ ] Count successful inputs from 0 to n-1 (Current memory = n)
+		[ ] At evaluation's end, reset history
+		[x] Stop at beginning of chains and reset display
+		
 [ ] Test changing import let to const
 [ ] Battery testing
 [ ] CSS
@@ -26,3 +30,5 @@ Strange cases:
 [x] Ans = 7 8 yields 8 instead of 78
 [x] Ans = CLEAR -52 displays 52 instead of -52
 [x] -0.25 -0.25 = 0 instead of -0.5
+
+
