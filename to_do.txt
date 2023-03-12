@@ -8,14 +8,16 @@ To do:
 	[x] Strange case
 [x] Keyboard Support
 [x] Second number is negative for mult and div
-[ ] .
+[x] .
 	[x] Careful of multiple instances in a number
 [ ] Backspace
 	[ ] Backspace Improve to many clicks
 		[ ] Count successful inputs from 0 to n-1
 		[ ] Stop at beginning and reset display
+[ ] Battery testing
 [ ] CSS
 [ ] Refactor
+[ ] Battery testing
 
 Strange cases:
 [x] -79 + 85 = 24 instead of 6

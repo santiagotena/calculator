@@ -51,7 +51,8 @@ function processNumber(selectionKey: string): void {
 		memory.firstNumber = selectionNumber;
 		if (memory.isNegative == true) {
 			memory.firstNumber = memory.firstNumber * -1;
-			memory.isNegative = false;
+			if (memory.firstNumber != 0)
+				memory.isNegative = false;
 		}
 		memory.displayString = memory.displayString.concat(selectionNumber.toString());
 	} else if (!isOperator()) {
@@ -59,12 +60,18 @@ function processNumber(selectionKey: string): void {
 			memory.firstNumber = memory.firstNumber * 10 - selectionNumber;
 		else	
 			memory.firstNumber = memory.firstNumber * 10 + selectionNumber;
+		if (memory.isNegative) {
+			memory.firstNumber = memory.firstNumber * -1;
+			if (memory.firstNumber != 0)
+				memory.isNegative = false;
+		}
 		memory.displayString = memory.displayString.concat(selectionNumber.toString());
 	} else if (!isSecondNumber()) {
 		memory.secondNumber = selectionNumber;
 		if (memory.isNegative == true) {
 			memory.secondNumber = memory.secondNumber * -1;
-			memory.isNegative = false;
+			if (memory.secondNumber != 0)
+				memory.isNegative = false;
 		}
 		memory.displayString = memory.displayString.concat(selectionNumber.toString());
 	} else {
@@ -79,6 +86,11 @@ function processNumber(selectionKey: string): void {
 				memory.secondNumber = memory.secondNumber * 10 - selectionNumber;
 			else	
 				memory.secondNumber = memory.secondNumber * 10 + selectionNumber;
+			if (memory.isNegative) {
+				memory.secondNumber = memory.secondNumber * -1;
+				if (memory.secondNumber != 0)
+					memory.isNegative = false;
+			}
 			memory.displayString = memory.displayString.concat(selectionNumber.toString());
 		}
 	}
@@ -190,7 +202,7 @@ function processDecimal(selectionKey: string): void {
 		else	
 			memory.firstNumber = memory.firstNumber + selectionNumber / 10**memory.decimalSpaces;
 		memory.firstNumber = Math.round((memory.firstNumber + Number.EPSILON) * 100) / 100;
-		if (memory.isNegative == true) {
+		if (memory.isNegative) {
 			memory.firstNumber = memory.firstNumber * -1;
 			if (memory.firstNumber != 0)
 				memory.isNegative = false;
@@ -202,7 +214,7 @@ function processDecimal(selectionKey: string): void {
 		else	
 			memory.secondNumber = memory.secondNumber + selectionNumber / 10**memory.decimalSpaces;
 		memory.secondNumber = Math.round((memory.secondNumber + Number.EPSILON) * 100) / 100;
-		if (memory.isNegative == true) {
+		if (memory.isNegative) {
 			memory.secondNumber = memory.secondNumber * -1;
 			if (memory.secondNumber != 0)
 				memory.isNegative = false;
