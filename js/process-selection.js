@@ -1,4 +1,4 @@
-export { processNumber, processOperator, processResult, isLastResult, isFirstNumber, isOperator, isSecondNumber };
+export { processNumber, processOperator, processResult, addDot, isLastResult, isFirstNumber, isOperator, isSecondNumber };
 import * as operationsImport from './operations.js';
 let operate = operationsImport.operate;
 import * as memoryImport from './memory.js';
@@ -163,4 +163,12 @@ function processResult() {
         memory.usedEqual = true;
         displayScreen(memory.displayString);
     }
+}
+function addDot() {
+    // if (memory.isDecimal)
+    // 	return ;
+    // if ()
+    // memory.displayString = memory.displayString.concat(".");
+    // memory.isDecimal = true;
+    // displayScreen(memory.displayString);
 }

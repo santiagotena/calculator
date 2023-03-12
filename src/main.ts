@@ -6,6 +6,7 @@ import * as processSelectionImport from './process-selection.js';
 let processNumber = processSelectionImport.processNumber;
 let processOperator = processSelectionImport.processOperator;
 let processResult = processSelectionImport.processResult;
+let addDot = processSelectionImport.addDot;
 import * as displayImport from './display.js';
 let displayScreen = displayImport.displayScreen;
 import * as utilsImport from './utils.js';
@@ -30,8 +31,8 @@ function processInput(selection: Element): void {
 	// 	processDecimal();
 	if (selectionType === "number")
 		processNumber(selectionKey);
-	// else if(selectionType === ".")
-	// 	addDot();
+	else if(selectionType === ".")
+		addDot();
 	else if (selectionType === "operator")
 		processOperator(selectionKey);
 	else if (selectionKey === "Enter")

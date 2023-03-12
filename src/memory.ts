@@ -11,6 +11,7 @@ const memory: {
 	secondNumber: number,
 	lastResult: number,
 	isNegative: boolean,
+	isDecimal: boolean,
 	usedAns: boolean,
 	usedEqual: boolean,
 	displayString: string
@@ -20,6 +21,7 @@ const memory: {
 	secondNumber: undefined,
     lastResult: undefined,
 	isNegative: false,
+	isDecimal: false,
 	usedAns: false,
 	usedEqual: false,
 	displayString: "",
@@ -31,6 +33,7 @@ const oldMemory: {
 	secondNumber: number,
 	lastResult: number,
 	isNegative: boolean,
+	isDecimal: boolean,
 	usedAns: boolean,
 	usedEqual: boolean,
 	displayString: string
@@ -40,6 +43,7 @@ const oldMemory: {
 	secondNumber: undefined,
     lastResult: undefined,
 	isNegative: false,
+	isDecimal: false,
 	usedAns: false,
 	usedEqual: false,
 	displayString: "",
