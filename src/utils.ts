@@ -1,5 +1,6 @@
 export {
 	clear,
+	processDelete,
 	processAns
 };
 
@@ -7,6 +8,7 @@ import * as memoryImport from './memory.js';
 let memory = memoryImport.memory;
 let oldMemory = memoryImport.memory;
 let resetMemory = memoryImport.resetMemory;
+let copyFromHistory = memoryImport.copyFromHistory;
 import * as displayImport from './display.js';
 let displayScreen = displayImport.displayScreen;
 let resetDisplay = displayImport.resetDisplay;
@@ -19,6 +21,11 @@ let isSecondNumber = processSelectionImport.isSecondNumber;
 function clear(): void {
 	resetMemory();
 	resetDisplay();
+}
+
+function processDelete(): void {
+	copyFromHistory();
+	displayScreen(memory.displayString);
 }
 
 function processAns(): void {

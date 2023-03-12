@@ -1,4 +1,4 @@
-export { memory, resetMemory, copyToOldMemory, copyFromOldMemory };
+export { memory, memoryHistory, resetMemory, copyToHistory, copyFromHistory };
 const memory = {
     firstNumber: undefined,
     operator: undefined,
@@ -10,9 +10,9 @@ const memory = {
     usedAns: false,
     usedEqual: false,
     displayString: "",
-    memorySteps: 0,
+    memorySteps: 1,
 };
-const oldMemory = {
+const backupMemory = {
     firstNumber: undefined,
     operator: undefined,
     secondNumber: undefined,
@@ -23,26 +23,20 @@ const oldMemory = {
     usedAns: false,
     usedEqual: false,
     displayString: "",
-    memorySteps: 0,
+    memorySteps: 1,
 };
+let memoryHistory = [memory];
 function resetMemory() {
-    for (let key in memory) {
-        if (typeof memory[key] == "boolean")
-            memory[key] = false;
-        else
-            memory[key] = undefined;
-        memory.displayString = "";
-        memory.decimalSpaces = 0;
-        memory.memorySteps = 0;
-    }
+    for (let key in memory)
+        memory[key] = backupMemory[key];
 }
-function copyFromOldMemory() {
-    for (let key in memory) {
-        memory[key] = oldMemory[key];
-    }
+function copyToHistory() {
+    for (let key in memory)
+        memoryHistory[memory.memorySteps - 1][key] = memory[key];
 }
-function copyToOldMemory() {
-    for (let key in memory) {
-        oldMemory[key] = memory[key];
-    }
+function copyFromHistory() {
+    for (let key in memory)
+        memory[key] = memoryHistory[memory.memorySteps - 1][key];
+    if (memory.memorySteps > 1)
+        memory.memorySteps--;
 }

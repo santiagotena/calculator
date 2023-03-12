@@ -1,47 +1,47 @@
 import * as memoryImport from './memory.js';
 let memory = memoryImport.memory;
-let copyToOldMemory = memoryImport.copyToOldMemory;
-let copyFromOldMemory = memoryImport.copyFromOldMemory;
+// let memoryHistory = memoryImport.memoryHistory;
+let copyToHistory = memoryImport.copyToHistory;
 import * as processSelectionImport from './process-selection.js';
 let processNumber = processSelectionImport.processNumber;
 let processOperator = processSelectionImport.processOperator;
 let processResult = processSelectionImport.processResult;
 let processDecimal = processSelectionImport.processDecimal;
 let addDot = processSelectionImport.addDot;
-import * as displayImport from './display.js';
-let displayScreen = displayImport.displayScreen;
 import * as utilsImport from './utils.js';
 let clear = utilsImport.clear;
+let processDelete = utilsImport.processDelete;
 let processAns = utilsImport.processAns;
 
 function processInput(selection: Element): void {
 	let selectionType: string;
 	let selectionKey: string;
+	let isValidInput: boolean;
 	
 	selectionType = selection.getAttribute('data-type');
 	selectionKey = selection.getAttribute('data-key');
+	isValidInput = false;
 	if (selectionKey === "Backspace") {
-		// Make function of this in utils
-		copyFromOldMemory();
-		displayScreen(memory.displayString);
+		processDelete();
 		return ;
 	}
-	copyToOldMemory();
-
-	if (selectionType === "number" && memory.isDecimal)
+	copyToHistory();
+	if (selectionType === "number" && memory.isDecimal) // Success possible
 		processDecimal(selectionKey);
-	if (selectionType === "number" && !memory.isDecimal)
+	else if (selectionType === "number" && !memory.isDecimal) // Success possible
 		processNumber(selectionKey);
-	else if (selectionType === "operator")
+	else if (selectionType === "operator") // Success possible
 		processOperator(selectionKey);
-	else if(selectionKey === ".")
+	else if(selectionKey === ".") // Success possible
 		addDot();
-	else if (selectionKey === "Enter")
+	else if (selectionKey === "Enter") // Restarts
 		processResult();
-	else if (selectionKey === "a")
+	else if (selectionKey === "a") // Success possible
 		processAns();
-	else if (selectionKey === "Clear")
+	else if (selectionKey === "Clear") // Restarts
 		clear();
+	if (isValidInput)
+		memory.memorySteps++;
 }
 
 let selections = document.querySelectorAll('.key');

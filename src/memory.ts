@@ -1,12 +1,13 @@
 export {
 		memory,
+		memoryHistory,
 		resetMemory,
-		copyToOldMemory,
-		copyFromOldMemory
+		copyToHistory,
+		copyFromHistory
 	};
 
-const memory: {
-	firstNumber: number,
+interface MemoryInterface {
+    firstNumber: number,
 	operator: string,
 	secondNumber: number,
 	lastResult: number,
@@ -17,34 +18,10 @@ const memory: {
 	usedEqual: boolean,
 	displayString: string,
 	memorySteps: number
-} = {
-	firstNumber: undefined,
-	operator: undefined,
-	secondNumber: undefined,
-    lastResult: undefined,
-	isNegative: false,
-	isDecimal: false,
-	decimalSpaces: 0,
-	usedAns: false,
-	usedEqual: false,
-	displayString: "",
-	memorySteps: 0,
-};
+}
 
-const oldMemory: {
-	firstNumber: number,
-	operator: string,
-	secondNumber: number,
-	lastResult: number,
-	isNegative: boolean,
-	isDecimal: boolean,
-	decimalSpaces: number,
-	usedAns: boolean,
-	usedEqual: boolean,
-	displayString: string,
-	memorySteps: number
-} = {
-	firstNumber: undefined,
+const memory: MemoryInterface = {
+    firstNumber: undefined,
 	operator: undefined,
 	secondNumber: undefined,
     lastResult: undefined,
@@ -54,29 +31,38 @@ const oldMemory: {
 	usedAns: false,
 	usedEqual: false,
 	displayString: "",
-	memorySteps: 0,
-};
+	memorySteps: 1,
+}
+
+const backupMemory: MemoryInterface = {
+    firstNumber: undefined,
+	operator: undefined,
+	secondNumber: undefined,
+    lastResult: undefined,
+	isNegative: false,
+	isDecimal: false,
+	decimalSpaces: 0,
+	usedAns: false,
+	usedEqual: false,
+	displayString: "",
+	memorySteps: 1,
+}
+
+let memoryHistory = [memory];
 
 function resetMemory(): void {
-	for (let key in memory) {
-		if (typeof memory[key] == "boolean")
-			memory[key] = false;
-		else
-			memory[key] = undefined;
-		memory.displayString = "";
-		memory.decimalSpaces = 0;
-		memory.memorySteps = 0;
-	}
+	for (let key in memory)
+		memory[key] = backupMemory[key];
 }
 
-function copyFromOldMemory(): void {
-	for (let key in memory) {
-		memory[key] = oldMemory[key];
-	}
+function copyToHistory(): void {
+	for (let key in memory)
+		memoryHistory[memory.memorySteps - 1][key]= memory[key];
 }
 
-function copyToOldMemory(): void {
-	for (let key in memory) {
-		oldMemory[key] = memory[key];
-	}
+function copyFromHistory(): void {
+	for (let key in memory)
+		memory[key]= memoryHistory[memory.memorySteps - 1][key];
+	if (memory.memorySteps > 1)
+		memory.memorySteps--;
 }
