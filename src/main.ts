@@ -30,7 +30,7 @@ function processInput(selection: Element): void {
 
 	if (selectionType === "number" && memory.isDecimal)
 		processDecimal(selectionKey);
-	if (selectionType === "number" && !memory.isDecimal) // Reset decimal bool - isfirst isoperator issecond
+	if (selectionType === "number" && !memory.isDecimal)
 		processNumber(selectionKey);
 	else if (selectionType === "operator")
 		processOperator(selectionKey);
