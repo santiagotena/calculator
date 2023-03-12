@@ -54,31 +54,27 @@ function processNumber(selectionKey: string): void {
 			memory.isNegative = false;
 		}
 		memory.displayString = memory.displayString.concat(selectionNumber.toString());
-	}
-	else if (!isOperator()) {
+	} else if (!isOperator()) {
 		if (memory.firstNumber < 0)
 			memory.firstNumber = memory.firstNumber * 10 - selectionNumber;
 		else	
 			memory.firstNumber = memory.firstNumber * 10 + selectionNumber;
 		memory.displayString = memory.displayString.concat(selectionNumber.toString());
-	}
-	else if (!isSecondNumber()) {
+	} else if (!isSecondNumber()) {
 		memory.secondNumber = selectionNumber;
 		if (memory.isNegative == true) {
 			memory.secondNumber = memory.secondNumber * -1;
 			memory.isNegative = false;
 		}
 		memory.displayString = memory.displayString.concat(selectionNumber.toString());
-	}
-	else {
+	} else {
 		if (memory.secondNumber == 0 && selectionNumber == 0)
 			return ;
 		else if (memory.secondNumber == 0 && selectionNumber != 0) {
 			memory.secondNumber = selectionNumber;
 			memory.displayString = memory.displayString.slice(0, -1);
 			memory.displayString = memory.displayString.concat(selectionNumber.toString());
-		}
-		else {
+		} else {
 			if (memory.secondNumber < 0)
 				memory.secondNumber = memory.secondNumber * 10 - selectionNumber;
 			else	
@@ -115,8 +111,7 @@ function processOperator(selectionType: string): void {
 		memory.operator = selectionType;
 		displayScreen(memory.displayString);
 		return ;
-	}
-	else if (isOperator() && !isSecondNumber()) {
+	} else if (isOperator() && !isSecondNumber()) {
 		if (selectionType == "-") {
 			if (memory.isNegative)
 				return ;
@@ -125,8 +120,7 @@ function processOperator(selectionType: string): void {
 			displayScreen(memory.displayString);
 			return ;
 		}
-	}
-	else if (!isOperator()) {
+	} else if (!isOperator()) {
 		if (selectionType == "-")
 			memory.displayString = memory.displayString.concat(" - ");
 		if (selectionType == "+")
@@ -138,8 +132,7 @@ function processOperator(selectionType: string): void {
 		memory.operator = selectionType;
 		displayScreen(memory.displayString);
 		return ;
-	}
-	else if (!isSecondNumber()) {
+	} else if (!isSecondNumber()) {
 		memory.displayString = memory.displayString.slice(0, -1);
 		if (selectionType == "-")
 			memory.displayString = memory.displayString.concat("-");
@@ -164,9 +157,7 @@ function processResult(): void {
 	{
 		result = memory.firstNumber;
 		isKeyValid = true;
-	}
-	else if (memory.firstNumber != undefined && memory.operator != undefined && memory.secondNumber != undefined)
-	{
+	} else if (memory.firstNumber != undefined && memory.operator != undefined && memory.secondNumber != undefined) {
 		if (memory.operator == "/" && memory.secondNumber == 0)
 		{
 			displayScreen("Wait. That's illegal.")
@@ -192,12 +183,26 @@ function processDecimal(): void {
 }
 
 function addDot(): void {
-	// if (memory.isDecimal)
-	// 	return ;
+	if (memory.isDecimal)
+		return ;
+	else {
+		if (!isOperator() && !isSecondNumber() && (memory.usedAns || memory.usedEqual)) {
+			memory.firstNumber = 0.0;
+			memory.displayString = memory.displayString.concat("0.");
+		} else if (!isFirstNumber()) {
+			memory.firstNumber = 0.0;
+			memory.displayString = memory.displayString.concat("0.");
+		} else if (!isOperator() && !isSecondNumber()) {
+			memory.displayString = memory.displayString.concat(".");
+		} else if (isOperator() && !isSecondNumber()) {
+			memory.secondNumber = 0.0;
+			memory.displayString = memory.displayString.concat("0.");
+		} else {
+			memory.displayString = memory.displayString.concat(".");
+		}
+		memory.isDecimal = true;
+		memory.decimalSpaces++;
+		displayScreen(memory.displayString);
+	}
 	
-	// if ()
-	// memory.displayString = memory.displayString.concat(".");
-	// memory.isDecimal = true;
-	// memory.decimalSpaces++;
-	// displayScreen(memory.displayString);
 }

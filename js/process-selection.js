@@ -167,11 +167,30 @@ function processResult() {
 function processDecimal() {
 }
 function addDot() {
-    // if (memory.isDecimal)
-    // 	return ;
-    // if ()
-    // memory.displayString = memory.displayString.concat(".");
-    // memory.isDecimal = true;
-    // memory.decimalSpaces++;
-    // displayScreen(memory.displayString);
+    console.log("Hey");
+    if (memory.isDecimal)
+        return;
+    else {
+        if (!isOperator() && !isSecondNumber() && (memory.usedAns || memory.usedEqual)) {
+            memory.firstNumber = 0.0;
+            memory.displayString = memory.displayString.concat("0.");
+        }
+        else if (!isFirstNumber()) {
+            memory.firstNumber = 0.0;
+            memory.displayString = memory.displayString.concat("0.");
+        }
+        else if (!isOperator() && !isSecondNumber()) {
+            memory.displayString = memory.displayString.concat(".");
+        }
+        else if (isOperator() && !isSecondNumber()) {
+            memory.secondNumber = 0.0;
+            memory.displayString = memory.displayString.concat("0.");
+        }
+        else {
+            memory.displayString = memory.displayString.concat(".");
+        }
+        memory.isDecimal = true;
+        memory.decimalSpaces++;
+        displayScreen(memory.displayString);
+    }
 }
