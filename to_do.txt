@@ -9,7 +9,7 @@ To do:
 [x] Keyboard Support
 [x] Second number is negative for mult and div
 [ ] .
-	[ ] Careful of multiple instances in a number
+	[x] Careful of multiple instances in a number
 [ ] Backspace
 	[ ] Backspace Improve to many clicks
 		[ ] Count successful inputs from 0 to n-1
@@ -22,3 +22,4 @@ Strange cases:
 [x] 0 - 5 = 0 5
 [x] Ans = 7 8 yields 8 instead of 78
 [x] Ans = CLEAR -52 displays 52 instead of -52
+[ ] -0.25 -0.25 = 0 instead of -0.5

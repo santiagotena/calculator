@@ -120,6 +120,8 @@ function processOperator(selectionType) {
         if (selectionType == "/")
             memory.displayString = memory.displayString.concat(" ÷ ");
         memory.operator = selectionType;
+        memory.isDecimal = false;
+        memory.decimalSpaces = 0;
         displayScreen(memory.displayString);
         return;
     }
@@ -164,33 +166,51 @@ function processResult() {
         displayScreen(memory.displayString);
     }
 }
-function processDecimal() {
+function processDecimal(selectionKey) {
+    let selectionNumber;
+    selectionNumber = +selectionKey;
+    if (isFirstNumber() && !isOperator() && !isSecondNumber()) {
+        if (memory.firstNumber < 0)
+            memory.firstNumber = memory.firstNumber - selectionNumber / Math.pow(10, memory.decimalSpaces);
+        else
+            memory.firstNumber = memory.firstNumber + selectionNumber / Math.pow(10, memory.decimalSpaces);
+        memory.firstNumber = Math.round((memory.firstNumber + Number.EPSILON) * 100) / 100;
+        memory.displayString = memory.displayString.concat(selectionNumber.toString());
+    }
+    else if (isFirstNumber() && isOperator() && isSecondNumber()) {
+        if (memory.secondNumber < 0)
+            memory.secondNumber = memory.secondNumber - selectionNumber / Math.pow(10, memory.decimalSpaces);
+        else
+            memory.secondNumber = memory.secondNumber + selectionNumber / Math.pow(10, memory.decimalSpaces);
+        memory.secondNumber = Math.round((memory.secondNumber + Number.EPSILON) * 100) / 100;
+        memory.displayString = memory.displayString.concat(selectionNumber.toString());
+    }
+    memory.decimalSpaces++;
+    displayScreen(memory.displayString);
 }
 function addDot() {
-    console.log("Hey");
     if (memory.isDecimal)
         return;
-    else {
-        if (!isOperator() && !isSecondNumber() && (memory.usedAns || memory.usedEqual)) {
-            memory.firstNumber = 0.0;
-            memory.displayString = memory.displayString.concat("0.");
-        }
-        else if (!isFirstNumber()) {
-            memory.firstNumber = 0.0;
-            memory.displayString = memory.displayString.concat("0.");
-        }
-        else if (!isOperator() && !isSecondNumber()) {
-            memory.displayString = memory.displayString.concat(".");
-        }
-        else if (isOperator() && !isSecondNumber()) {
-            memory.secondNumber = 0.0;
-            memory.displayString = memory.displayString.concat("0.");
-        }
-        else {
-            memory.displayString = memory.displayString.concat(".");
-        }
-        memory.isDecimal = true;
-        memory.decimalSpaces++;
-        displayScreen(memory.displayString);
+    if (!isOperator() && !isSecondNumber() && (memory.usedAns || memory.usedEqual)) {
+        memory.displayString = "";
+        memory.firstNumber = 0;
+        memory.displayString = memory.displayString.concat("0.");
     }
+    else if (!isFirstNumber()) {
+        memory.firstNumber = 0;
+        memory.displayString = memory.displayString.concat("0.");
+    }
+    else if (!isOperator() && !isSecondNumber()) {
+        memory.displayString = memory.displayString.concat(".");
+    }
+    else if (isOperator() && !isSecondNumber()) {
+        memory.secondNumber = 0;
+        memory.displayString = memory.displayString.concat("0.");
+    }
+    else {
+        memory.displayString = memory.displayString.concat(".");
+    }
+    memory.isDecimal = true;
+    memory.decimalSpaces++;
+    displayScreen(memory.displayString);
 }

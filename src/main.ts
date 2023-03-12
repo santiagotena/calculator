@@ -29,8 +29,8 @@ function processInput(selection: Element): void {
 	copyToOldMemory();
 
 	if (selectionType === "number" && memory.isDecimal)
-		processDecimal();
-	else if (selectionType === "number") // Reset decimal bool - isfirst isoperator issecond
+		processDecimal(selectionKey);
+	if (selectionType === "number" && !memory.isDecimal) // Reset decimal bool - isfirst isoperator issecond
 		processNumber(selectionKey);
 	else if (selectionType === "operator")
 		processOperator(selectionKey);
