@@ -1,6 +1,8 @@
 body {
-	color: black;
-	background: linear-gradient(rgba(40, 26, 232, 0.082), white);
+	color: white;
+	/* color: black; */
+	/* background: linear-gradient(rgba(40, 26, 232, 0.082), black); */
+	background: black;
 }
 .flex-container {
 	height: 100vh;
