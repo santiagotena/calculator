@@ -24,6 +24,11 @@ function clear(): void {
 }
 
 function processDelete(): void {
+	if (memory.usedEqual) {
+		memory.displayString = "0";
+		memory.firstNumber = 0;
+		displayScreen(memory.displayString);
+	}
 	copyFromHistory();
 	displayScreen(memory.displayString);
 }
