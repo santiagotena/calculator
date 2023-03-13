@@ -19,9 +19,8 @@ To do:
 		[x] Stop at beginning of chains and reset display
 [x] Check all return values of processSelection
 [x] Test changing import let to const
-[ ] Battery testing
-[ ] CSS
 [ ] Refactor
+[ ] CSS
 [ ] Battery testing
 
 Strange cases:
