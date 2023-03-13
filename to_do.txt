@@ -21,7 +21,7 @@ To do:
 [x] Test changing import let to const
 [x] Refactor
 [ ] CSS
-[ ] Battery testing
+[ ] Final testing
 
 Strange cases:
 [x] -79 + 85 = 24 instead of 6
