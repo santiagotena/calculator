@@ -75,7 +75,6 @@ function copyToHistory(): void {
 
 function copyFromHistory(): void {
 	if (memory.memorySteps == 1) {
-		resetMemory;
 		return ;
 	}
 	for (let key in memory)
