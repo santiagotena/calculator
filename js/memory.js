@@ -22,10 +22,10 @@ function makeMemoryHistory(n) {
     }
     return (memoryHistory);
 }
-const memory = new Memory();
-const backupMemory = new Memory();
 const historySize = 1000;
 let memoryHistory = makeMemoryHistory(historySize);
+const memory = new Memory();
+const backupMemory = new Memory();
 function resetMemory() {
     for (let key in memory)
         memory[key] = backupMemory[key];

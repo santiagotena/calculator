@@ -56,10 +56,10 @@ function makeMemoryHistory(n: number) {
 	return (memoryHistory);
 }
 
-const memory = new Memory();
-const backupMemory = new Memory();
 const historySize = 1000;
 let memoryHistory = makeMemoryHistory(historySize);
+const memory = new Memory();
+const backupMemory = new Memory();
 
 function resetMemory(): void {
 	for (let key in memory)

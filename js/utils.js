@@ -16,10 +16,8 @@ function clear() {
     resetDisplay();
 }
 function processDelete() {
-    if (memory.usedEqual) {
-        memory.displayString = "0";
-        memory.firstNumber = 0;
-        displayScreen(memory.displayString);
+    if (!isFirstNumber() && !isOperator() && !isSecondNumber()) {
+        return;
     }
     copyFromHistory();
     displayScreen(memory.displayString);
@@ -36,7 +34,7 @@ function processAns() {
     }
     else if (isFirstNumber() && isOperator() && !isSecondNumber()) {
         memory.secondNumber = memory.lastResult;
-        memory.displayString = memory.displayString.concat(" Ans");
+        memory.displayString = memory.displayString.concat("Ans");
         memory.usedAns = true;
         displayScreen(memory.displayString);
         return (0);
