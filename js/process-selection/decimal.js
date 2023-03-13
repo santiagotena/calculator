@@ -1,11 +1,6 @@
-export { processDecimal, addDot };
-import * as operationsImport from '../operations.js';
-const operate = operationsImport.operate;
-import * as memoryImport from '../memory.js';
-const memory = memoryImport.memory;
-const resetMemory = memoryImport.resetMemory;
-import * as displayImport from '../display.js';
-const displayScreen = displayImport.displayScreen;
+import { isFirstNumber, isOperator, isSecondNumber } from "./booleans.js";
+import { memory } from "../memory.js";
+import { displayScreen } from "../display.js";
 function processDecimal(selectionKey) {
     let selectionNumber;
     selectionNumber = +selectionKey;
@@ -66,3 +61,4 @@ function addDot() {
     displayScreen(memory.displayString);
     return (0);
 }
+export { processDecimal, addDot };

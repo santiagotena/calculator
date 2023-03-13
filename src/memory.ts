@@ -1,10 +1,3 @@
-export {
-		memory,
-		resetMemory,
-		copyToHistory,
-		copyFromHistory
-	};
-
 class Memory {
 	firstNumber: number;
 	operator: string;
@@ -83,3 +76,10 @@ function copyFromHistory(): void {
 		memory.reachedStart = true;
 	}
 }
+
+export {
+	memory,
+	resetMemory,
+	copyToHistory,
+	copyFromHistory
+};

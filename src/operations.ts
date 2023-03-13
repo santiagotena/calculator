@@ -1,7 +1,3 @@
-export {
-	operate
-};
-
 function add(a: number, b: number): number {
 	return (a + b);
 }
@@ -31,3 +27,7 @@ function operate(a: number, b: number, operation: string): number {
 		result = divide(a, b);
 	return (Math.round((result + Number.EPSILON) * 100) / 100);
 }
+
+export {
+	operate
+};

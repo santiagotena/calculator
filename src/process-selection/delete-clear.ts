@@ -1,19 +1,6 @@
-export {
-	processClear,
-	processDelete,
-};
-
-import * as memoryImport from '../memory.js';
-const memory = memoryImport.memory;
-const resetMemory = memoryImport.resetMemory;
-const copyFromHistory = memoryImport.copyFromHistory;
-import * as displayImport from '../display.js';
-const displayScreen = displayImport.displayScreen;
-const resetDisplay = displayImport.resetDisplay;
-import * as processSelectionImport from './process-selection.js';
-const isFirstNumber = processSelectionImport.isFirstNumber;
-const isOperator = processSelectionImport.isOperator;
-const isSecondNumber = processSelectionImport.isSecondNumber;
+import { isFirstNumber, isOperator, isSecondNumber } from "./booleans.js";
+import { copyFromHistory, memory, resetMemory } from "../memory.js";
+import { displayScreen, resetDisplay } from "../display.js";
 
 function processClear(): void {
 	resetMemory();
@@ -28,3 +15,7 @@ function processDelete(): void {
 	displayScreen(memory.displayString);
 }
 
+export {
+	processClear,
+	processDelete,
+};

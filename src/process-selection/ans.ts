@@ -1,16 +1,6 @@
-export {
-	processAns
-};
-
-import * as memoryImport from '../memory.js';
-const memory = memoryImport.memory;
-import * as displayImport from '../display.js';
-const displayScreen = displayImport.displayScreen;
-import * as processSelectionImport from './process-selection.js';
-const isLastResult = processSelectionImport.isLastResult;
-const isFirstNumber = processSelectionImport.isFirstNumber;
-const isOperator = processSelectionImport.isOperator;
-const isSecondNumber = processSelectionImport.isSecondNumber;
+import { isFirstNumber, isLastResult, isOperator, isSecondNumber } from "./booleans.js";
+import { memory } from "../memory.js";
+import { displayScreen } from "../display.js";
 
 function displayAns(): void {
 	memory.firstNumber = memory.lastResult;
@@ -39,3 +29,7 @@ function processAns(): number {
 		return (0);
 	}
 }
+
+export {
+	processAns
+};

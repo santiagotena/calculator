@@ -1,8 +1,3 @@
-export {
-	resetDisplay,
-	displayScreen
-};
-
 function resetDisplay(): void {
 	let display = document.querySelector('.display');
 
@@ -14,3 +9,8 @@ function displayScreen(displayNumber: string): void {
 
 	display.textContent = displayNumber;
 }
+
+export {
+	resetDisplay,
+	displayScreen
+};

@@ -1,17 +1,10 @@
-import * as memoryImport from './memory.js';
-const memory = memoryImport.memory;
-const copyToHistory = memoryImport.copyToHistory;
-import * as processSelectionImport from './process-selection/process-selection.js';
-const processNumber = processSelectionImport.processNumber;
-const processOperator = processSelectionImport.processOperator;
-const processResult = processSelectionImport.processResult;
-const processDecimal = processSelectionImport.processDecimal;
-const addDot = processSelectionImport.addDot;
-import * as utilsImport from './process-selection/delete-clear.js';
-const processClear = utilsImport.processClear;
-const processDelete = utilsImport.processDelete;
-import * as processAnsImport from './process-selection/ans.js';
-const processAns = processAnsImport.processAns;
+import { processNumber } from "./process-selection/number.js";
+import { addDot, processDecimal } from "./process-selection/decimal.js";
+import { processOperator } from "./process-selection/operator.js";
+import { processResult } from "./process-selection/result.js";
+import { processAns } from "./process-selection/ans.js";
+import { copyToHistory, memory } from "./memory.js";
+import { processClear, processDelete } from "./process-selection/delete-clear.js";
 
 function processInput(selection: Element): void {
 	let selectionType: string;
