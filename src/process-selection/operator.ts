@@ -1,4 +1,8 @@
-import { isFirstNumber, isOperator, isSecondNumber } from "./booleans.js";
+import { 
+		canFirstNumberHaveOperator, 
+		isOnlySecondNumberMissing, 
+		isOperator 
+		} from "./booleans.js";
 import { memory } from "../memory.js";
 import { displayScreen } from "../display.js";
 
@@ -61,7 +65,7 @@ function makeFirstNumberNegative(): void {
 }
 
 function processOperator(selectionType: string): number {
-	if (!isFirstNumber() || (memory.firstNumber == 0 && isOperator())) {
+	if (canFirstNumberHaveOperator()) {
 		if (selectionType == "-") {
 			makeFirstNumberNegative();
 			return (0);
@@ -73,7 +77,7 @@ function processOperator(selectionType: string): number {
 	} else if (!isOperator()) {
 		placeOperator(selectionType);
 		return (0);
-	} else if (isOperator() && !isSecondNumber()) {
+	} else if (isOnlySecondNumberMissing()) {
 		if (selectionType == "-") {
 			if (memory.isNegative)
 				return (1);

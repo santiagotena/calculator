@@ -1,4 +1,4 @@
-import { isFirstNumber, isOperator, isSecondNumber } from "./booleans.js";
+import { areBothNumbersAndOperator, isOnlyFirstNumber } from "./booleans.js";
 import { operate } from "../operations.js";
 import { memory, resetMemory } from "../memory.js";
 import { displayScreen } from "../display.js";
@@ -22,11 +22,11 @@ function processResult(): void {
 	let isKeyValid: boolean;
 
 	isKeyValid = false;
-	if (isFirstNumber() && !isOperator() && !isSecondNumber())
+	if (isOnlyFirstNumber())
 	{
 		result = memory.firstNumber;
 		isKeyValid = true;
-	} else if (isFirstNumber() && isOperator() && isSecondNumber()) {
+	} else if (areBothNumbersAndOperator()) {
 		if (memory.operator == "/" && memory.secondNumber == 0)
 		{
 			displayEasterEgg();

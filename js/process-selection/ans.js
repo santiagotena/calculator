@@ -1,4 +1,4 @@
-import { isFirstNumber, isLastResult, isOperator, isSecondNumber } from "./booleans.js";
+import { isFirstNumber, isLastResult, isOnlySecondNumberMissing, justReceivedAnswer } from "./booleans.js";
 import { memory } from "../memory.js";
 import { displayScreen } from "../display.js";
 function concatAns() {
@@ -16,12 +16,11 @@ function displayAns() {
 function processAns() {
     if (!isLastResult())
         memory.lastResult = 0;
-    if (!isFirstNumber() ||
-        (isLastResult() && !isOperator() && !isSecondNumber())) {
+    if (!isFirstNumber() || justReceivedAnswer()) {
         displayAns();
         return (0);
     }
-    else if (isFirstNumber() && isOperator() && !isSecondNumber()) {
+    else if (isOnlySecondNumberMissing()) {
         concatAns();
         return (0);
     }

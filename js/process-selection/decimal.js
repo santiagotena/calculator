@@ -1,4 +1,4 @@
-import { isFirstNumber, isOperator, isSecondNumber } from "./booleans.js";
+import { areBothNumbersAndOperator, isFirstNumber, isNewCalculation, isOnlyFirstNumber, isOnlySecondNumberMissing } from "./booleans.js";
 import { memory } from "../memory.js";
 import { displayScreen } from "../display.js";
 function addDecimalToSecondNumber(selectionNumber) {
@@ -30,9 +30,9 @@ function addDecimalToFirstNumber(selectionNumber) {
 function processDecimal(selectionKey) {
     let selectionNumber;
     selectionNumber = +selectionKey;
-    if (isFirstNumber() && !isOperator() && !isSecondNumber())
+    if (isOnlyFirstNumber())
         addDecimalToFirstNumber(selectionNumber);
-    else if (isFirstNumber() && isOperator() && isSecondNumber())
+    else if (areBothNumbersAndOperator())
         addDecimalToSecondNumber(selectionNumber);
     memory.decimalSpaces++;
     displayScreen(memory.displayString);
@@ -41,9 +41,7 @@ function processDecimal(selectionKey) {
 function addDot() {
     if (memory.isDecimal)
         return (1);
-    if (!isOperator() &&
-        !isSecondNumber() &&
-        (memory.usedAns || memory.usedEqual || memory.reachedStart)) {
+    if (isNewCalculation()) {
         memory.displayString = "";
         memory.firstNumber = 0;
         memory.displayString = memory.displayString.concat("0.");
@@ -52,7 +50,7 @@ function addDot() {
         memory.firstNumber = 0;
         memory.displayString = memory.displayString.concat("0.");
     }
-    else if (isOperator() && !isSecondNumber()) {
+    else if (isOnlySecondNumberMissing()) {
         memory.secondNumber = 0;
         memory.displayString = memory.displayString.concat("0.");
     }

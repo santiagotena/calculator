@@ -1,11 +1,9 @@
-import { isFirstNumber, isOperator, isSecondNumber } from "./booleans.js";
+import { isCalculationEmpty } from "./booleans.js";
 import { copyFromHistory, memory, resetMemory } from "../memory.js";
 import { displayScreen, resetDisplay } from "../display.js";
 function processDelete() {
-    if (!isFirstNumber() && !isOperator() &&
-        !isSecondNumber() && !memory.isNegative) {
+    if (isCalculationEmpty())
         return;
-    }
     copyFromHistory();
     displayScreen(memory.displayString);
 }
