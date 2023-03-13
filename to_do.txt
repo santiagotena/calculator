@@ -29,5 +29,6 @@ Strange cases:
 [x] Ans = 7 8 yields 8 instead of 78
 [x] Ans = CLEAR -52 displays 52 instead of -52
 [x] -0.25 -0.25 = 0 instead of -0.5
+[ ] - Backspace = - instead of 0
 
 
