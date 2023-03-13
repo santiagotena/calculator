@@ -2,6 +2,41 @@ import { isFirstNumber, isOperator, isSecondNumber } from "./booleans.js";
 import { memory } from "../memory.js";
 import { displayScreen } from "../display.js";
 
+function replaceOperator(selectionType: string): void {
+	memory.displayString = memory.displayString.slice(0, -2);
+	if (selectionType == "-")
+		memory.displayString = memory.displayString.concat("- ");
+	if (selectionType == "+")
+		memory.displayString = memory.displayString.concat("+ ");
+	if (selectionType == "*")
+		memory.displayString = memory.displayString.concat("x ");
+	if (selectionType == "/")
+		memory.displayString = memory.displayString.concat("÷ ");
+	memory.operator = selectionType;
+	displayScreen(memory.displayString);
+}
+
+function makeSecondNumberNegative(): void {
+	memory.isNegative = true;
+	memory.displayString = memory.displayString.concat("-");
+	displayScreen(memory.displayString);
+}
+
+function placeOperator(selectionType: string): void {
+	if (selectionType == "-")
+		memory.displayString = memory.displayString.concat(" - ");
+	if (selectionType == "+")
+		memory.displayString = memory.displayString.concat(" + ");
+	if (selectionType == "*")
+		memory.displayString = memory.displayString.concat(" x ");
+	if (selectionType == "/")
+		memory.displayString = memory.displayString.concat(" ÷ ");
+	memory.operator = selectionType;
+	memory.isDecimal = false;
+	memory.decimalSpaces = 0;
+	displayScreen(memory.displayString);
+}
+
 function addOperatorToZero(selectionType: string): void {
 	if (selectionType == "+") {
 		memory.firstNumber = 0;
@@ -22,41 +57,6 @@ function addOperatorToZero(selectionType: string): void {
 function makeFirstNumberNegative(): void {
 	memory.isNegative = true;
 	memory.displayString = "-";
-	displayScreen(memory.displayString);
-}
-
-function placeOperator(selectionType: string): void {
-	if (selectionType == "-")
-		memory.displayString = memory.displayString.concat(" - ");
-	if (selectionType == "+")
-		memory.displayString = memory.displayString.concat(" + ");
-	if (selectionType == "*")
-		memory.displayString = memory.displayString.concat(" x ");
-	if (selectionType == "/")
-		memory.displayString = memory.displayString.concat(" ÷ ");
-	memory.operator = selectionType;
-	memory.isDecimal = false;
-	memory.decimalSpaces = 0;
-	displayScreen(memory.displayString);
-}
-
-function replaceOperator(selectionType: string): void {
-	memory.displayString = memory.displayString.slice(0, -2);
-	if (selectionType == "-")
-		memory.displayString = memory.displayString.concat("- ");
-	if (selectionType == "+")
-		memory.displayString = memory.displayString.concat("+ ");
-	if (selectionType == "*")
-		memory.displayString = memory.displayString.concat("x ");
-	if (selectionType == "/")
-		memory.displayString = memory.displayString.concat("÷ ");
-	memory.operator = selectionType;
-	displayScreen(memory.displayString);
-}
-
-function makeSecondNumberNegative(): void {
-	memory.isNegative = true;
-	memory.displayString = memory.displayString.concat("-");
 	displayScreen(memory.displayString);
 }
 
