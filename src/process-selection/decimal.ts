@@ -2,20 +2,6 @@ import { isFirstNumber, isOperator, isSecondNumber } from "./booleans.js";
 import { memory } from "../memory.js";
 import { displayScreen } from "../display.js";
 
-function addDecimalToFirstNumber(selectionNumber: number): void {
-	if (memory.firstNumber < 0)
-		memory.firstNumber = memory.firstNumber - selectionNumber / 10 ** memory.decimalSpaces;
-	else	
-		memory.firstNumber = memory.firstNumber + selectionNumber / 10 ** memory.decimalSpaces;
-	memory.firstNumber = Math.round((memory.firstNumber + Number.EPSILON) * 100) / 100;
-	if (memory.isNegative) {
-		memory.firstNumber = memory.firstNumber * -1;
-		if (memory.firstNumber != 0)
-			memory.isNegative = false;
-	}
-	memory.displayString = memory.displayString.concat(selectionNumber.toString());
-}
-
 function addDecimalToSecondNumber(selectionNumber: number): void {
 	if (memory.secondNumber < 0)
 		memory.secondNumber = memory.secondNumber - selectionNumber / 10 ** memory.decimalSpaces;
@@ -25,6 +11,20 @@ function addDecimalToSecondNumber(selectionNumber: number): void {
 	if (memory.isNegative) {
 		memory.secondNumber = memory.secondNumber * -1;
 		if (memory.secondNumber != 0)
+			memory.isNegative = false;
+	}
+	memory.displayString = memory.displayString.concat(selectionNumber.toString());
+}
+
+function addDecimalToFirstNumber(selectionNumber: number): void {
+	if (memory.firstNumber < 0)
+		memory.firstNumber = memory.firstNumber - selectionNumber / 10 ** memory.decimalSpaces;
+	else	
+		memory.firstNumber = memory.firstNumber + selectionNumber / 10 ** memory.decimalSpaces;
+	memory.firstNumber = Math.round((memory.firstNumber + Number.EPSILON) * 100) / 100;
+	if (memory.isNegative) {
+		memory.firstNumber = memory.firstNumber * -1;
+		if (memory.firstNumber != 0)
 			memory.isNegative = false;
 	}
 	memory.displayString = memory.displayString.concat(selectionNumber.toString());
