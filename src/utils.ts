@@ -1,5 +1,5 @@
 export {
-	clear,
+	processClear,
 	processDelete,
 	processAns
 };
@@ -17,7 +17,7 @@ const isFirstNumber = processSelectionImport.isFirstNumber;
 const isOperator = processSelectionImport.isOperator;
 const isSecondNumber = processSelectionImport.isSecondNumber;
 
-function clear(): void {
+function processClear(): void {
 	resetMemory();
 	resetDisplay();
 }
@@ -30,22 +30,30 @@ function processDelete(): void {
 	displayScreen(memory.displayString);
 }
 
+function displayAns(): void {
+	memory.firstNumber = memory.lastResult;
+	memory.displayString = "Ans";
+	memory.usedAns = true;
+	displayScreen(memory.displayString);
+}
+
+function concatAns(): void {
+	memory.secondNumber = memory.lastResult;
+	memory.displayString = memory.displayString.concat("Ans");
+	memory.usedAns = true;
+	displayScreen(memory.displayString);
+}
+
 function processAns(): number {
 	if (!isLastResult())
 		memory.lastResult = 0;
 	if (!isFirstNumber() ||
 		(isLastResult() && !isOperator() && !isSecondNumber())) {
-		memory.firstNumber = memory.lastResult;
-		memory.displayString = "Ans";
-		memory.usedAns = true;
-		displayScreen(memory.displayString);
+		displayAns();
 		return (0);
 	} 
 	else if (isFirstNumber() && isOperator() && !isSecondNumber()) {
-		memory.secondNumber = memory.lastResult;
-		memory.displayString = memory.displayString.concat("Ans");
-		memory.usedAns = true;
-		displayScreen(memory.displayString);
+		concatAns();
 		return (0);
 	}
 }

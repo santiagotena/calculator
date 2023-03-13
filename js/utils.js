@@ -1,4 +1,4 @@
-export { clear, processDelete, processAns };
+export { processClear, processDelete, processAns };
 import * as memoryImport from './memory.js';
 const memory = memoryImport.memory;
 const resetMemory = memoryImport.resetMemory;
@@ -11,7 +11,7 @@ const isLastResult = processSelectionImport.isLastResult;
 const isFirstNumber = processSelectionImport.isFirstNumber;
 const isOperator = processSelectionImport.isOperator;
 const isSecondNumber = processSelectionImport.isSecondNumber;
-function clear() {
+function processClear() {
     resetMemory();
     resetDisplay();
 }
@@ -22,22 +22,28 @@ function processDelete() {
     copyFromHistory();
     displayScreen(memory.displayString);
 }
+function displayAns() {
+    memory.firstNumber = memory.lastResult;
+    memory.displayString = "Ans";
+    memory.usedAns = true;
+    displayScreen(memory.displayString);
+}
+function concatAns() {
+    memory.secondNumber = memory.lastResult;
+    memory.displayString = memory.displayString.concat("Ans");
+    memory.usedAns = true;
+    displayScreen(memory.displayString);
+}
 function processAns() {
     if (!isLastResult())
         memory.lastResult = 0;
     if (!isFirstNumber() ||
         (isLastResult() && !isOperator() && !isSecondNumber())) {
-        memory.firstNumber = memory.lastResult;
-        memory.displayString = "Ans";
-        memory.usedAns = true;
-        displayScreen(memory.displayString);
+        displayAns();
         return (0);
     }
     else if (isFirstNumber() && isOperator() && !isSecondNumber()) {
-        memory.secondNumber = memory.lastResult;
-        memory.displayString = memory.displayString.concat("Ans");
-        memory.usedAns = true;
-        displayScreen(memory.displayString);
+        concatAns();
         return (0);
     }
 }
