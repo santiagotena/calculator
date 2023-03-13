@@ -1,30 +1,36 @@
+import { isFirstNumber, isOperator, isSecondNumber } from "./booleans.js";
 import { operate } from "../operations.js";
 import { memory, resetMemory } from "../memory.js";
 import { displayScreen } from "../display.js";
+function displayEasterEgg() {
+    displayScreen("Wait. That's illegal.");
+    resetMemory();
+}
+function setupNextChain(result) {
+    resetMemory();
+    memory.firstNumber = result;
+    memory.lastResult = result;
+    memory.displayString = result.toString();
+    memory.usedEqual = true;
+    displayScreen(memory.displayString);
+}
 function processResult() {
     let result;
     let isKeyValid;
     isKeyValid = false;
-    if (memory.firstNumber != undefined && memory.operator == undefined && memory.secondNumber == undefined) {
+    if (isFirstNumber() && !isOperator() && !isSecondNumber()) {
         result = memory.firstNumber;
         isKeyValid = true;
     }
-    else if (memory.firstNumber != undefined && memory.operator != undefined && memory.secondNumber != undefined) {
+    else if (isFirstNumber() && isOperator() && isSecondNumber()) {
         if (memory.operator == "/" && memory.secondNumber == 0) {
-            displayScreen("Wait. That's illegal.");
-            resetMemory();
+            displayEasterEgg();
             return;
         }
         result = operate(memory.firstNumber, memory.secondNumber, memory.operator);
         isKeyValid = true;
     }
-    if (isKeyValid) {
-        resetMemory();
-        memory.firstNumber = result;
-        memory.lastResult = result;
-        memory.displayString = result.toString();
-        memory.usedEqual = true;
-        displayScreen(memory.displayString);
-    }
+    if (isKeyValid)
+        setupNextChain(result);
 }
 export { processResult };
