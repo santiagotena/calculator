@@ -1,4 +1,4 @@
-import { processNumber } from "./process-selection/number.js";
+import { processNumber } from "./process-selection/number-one.js";
 import { addDot, processDecimal } from "./process-selection/decimal.js";
 import { processOperator } from "./process-selection/operator.js";
 import { processResult } from "./process-selection/result.js";
