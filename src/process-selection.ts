@@ -11,12 +11,12 @@ export {
 };
 
 import * as operationsImport from './operations.js';
-let operate = operationsImport.operate;
+const operate = operationsImport.operate;
 import * as memoryImport from './memory.js';
-let memory = memoryImport.memory;
-let resetMemory = memoryImport.resetMemory;
+const memory = memoryImport.memory;
+const resetMemory = memoryImport.resetMemory;
 import * as displayImport from './display.js';
-let displayScreen = displayImport.displayScreen;
+const displayScreen = displayImport.displayScreen;
 
 const isLastResult = (): boolean => (memory.lastResult != undefined);
 const isFirstNumber = (): boolean => (memory.firstNumber != undefined);

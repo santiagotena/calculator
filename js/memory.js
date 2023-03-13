@@ -1,4 +1,4 @@
-export { memory, memoryHistory, resetMemory, copyToHistory, copyFromHistory };
+export { memory, resetMemory, copyToHistory, copyFromHistory };
 class Memory {
     constructor(firstNumber = undefined, operator = undefined, secondNumber = undefined, lastResult = undefined, isNegative = false, isDecimal = false, decimalSpaces = 0, usedAns = false, usedEqual = false, displayString = "", memorySteps = 1, reachedStart = false) {
         this.firstNumber = firstNumber;

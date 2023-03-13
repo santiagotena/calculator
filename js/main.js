@@ -1,17 +1,16 @@
 import * as memoryImport from './memory.js';
-let memory = memoryImport.memory;
-// let memoryHistory = memoryImport.memoryHistory;
-let copyToHistory = memoryImport.copyToHistory;
+const memory = memoryImport.memory;
+const copyToHistory = memoryImport.copyToHistory;
 import * as processSelectionImport from './process-selection.js';
-let processNumber = processSelectionImport.processNumber;
-let processOperator = processSelectionImport.processOperator;
-let processResult = processSelectionImport.processResult;
-let processDecimal = processSelectionImport.processDecimal;
-let addDot = processSelectionImport.addDot;
+const processNumber = processSelectionImport.processNumber;
+const processOperator = processSelectionImport.processOperator;
+const processResult = processSelectionImport.processResult;
+const processDecimal = processSelectionImport.processDecimal;
+const addDot = processSelectionImport.addDot;
 import * as utilsImport from './utils.js';
-let clear = utilsImport.clear;
-let processDelete = utilsImport.processDelete;
-let processAns = utilsImport.processAns;
+const clear = utilsImport.clear;
+const processDelete = utilsImport.processDelete;
+const processAns = utilsImport.processAns;
 function processInput(selection) {
     let selectionType;
     let selectionKey;

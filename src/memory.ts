@@ -1,6 +1,5 @@
 export {
 		memory,
-		memoryHistory,
 		resetMemory,
 		copyToHistory,
 		copyFromHistory

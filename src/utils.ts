@@ -5,18 +5,17 @@ export {
 };
 
 import * as memoryImport from './memory.js';
-let memory = memoryImport.memory;
-let oldMemory = memoryImport.memory;
-let resetMemory = memoryImport.resetMemory;
-let copyFromHistory = memoryImport.copyFromHistory;
+const memory = memoryImport.memory;
+const resetMemory = memoryImport.resetMemory;
+const copyFromHistory = memoryImport.copyFromHistory;
 import * as displayImport from './display.js';
-let displayScreen = displayImport.displayScreen;
-let resetDisplay = displayImport.resetDisplay;
+const displayScreen = displayImport.displayScreen;
+const resetDisplay = displayImport.resetDisplay;
 import * as processSelectionImport from './process-selection.js';
-let isLastResult = processSelectionImport.isLastResult;
-let isFirstNumber = processSelectionImport.isFirstNumber;
-let isOperator = processSelectionImport.isOperator;
-let isSecondNumber = processSelectionImport.isSecondNumber;
+const isLastResult = processSelectionImport.isLastResult;
+const isFirstNumber = processSelectionImport.isFirstNumber;
+const isOperator = processSelectionImport.isOperator;
+const isSecondNumber = processSelectionImport.isSecondNumber;
 
 function clear(): void {
 	resetMemory();

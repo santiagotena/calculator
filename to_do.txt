@@ -18,7 +18,7 @@ To do:
 		[x] At evaluation's end, reset history
 		[x] Stop at beginning of chains and reset display
 [x] Check all return values of processSelection
-[ ] Test changing import let to const
+[x] Test changing import let to const
 [ ] Battery testing
 [ ] CSS
 [ ] Refactor
