@@ -1,35 +1,39 @@
 import { isFirstNumber, isOperator, isSecondNumber } from "./booleans.js";
 import { memory } from "../memory.js";
 import { displayScreen } from "../display.js";
+function addDecimalToFirstNumber(selectionNumber) {
+    if (memory.firstNumber < 0)
+        memory.firstNumber = memory.firstNumber - selectionNumber / Math.pow(10, memory.decimalSpaces);
+    else
+        memory.firstNumber = memory.firstNumber + selectionNumber / Math.pow(10, memory.decimalSpaces);
+    memory.firstNumber = Math.round((memory.firstNumber + Number.EPSILON) * 100) / 100;
+    if (memory.isNegative) {
+        memory.firstNumber = memory.firstNumber * -1;
+        if (memory.firstNumber != 0)
+            memory.isNegative = false;
+    }
+    memory.displayString = memory.displayString.concat(selectionNumber.toString());
+}
+function addDecimalToSecondNumber(selectionNumber) {
+    if (memory.secondNumber < 0)
+        memory.secondNumber = memory.secondNumber - selectionNumber / Math.pow(10, memory.decimalSpaces);
+    else
+        memory.secondNumber = memory.secondNumber + selectionNumber / Math.pow(10, memory.decimalSpaces);
+    memory.secondNumber = Math.round((memory.secondNumber + Number.EPSILON) * 100) / 100;
+    if (memory.isNegative) {
+        memory.secondNumber = memory.secondNumber * -1;
+        if (memory.secondNumber != 0)
+            memory.isNegative = false;
+    }
+    memory.displayString = memory.displayString.concat(selectionNumber.toString());
+}
 function processDecimal(selectionKey) {
     let selectionNumber;
     selectionNumber = +selectionKey;
-    if (isFirstNumber() && !isOperator() && !isSecondNumber()) {
-        if (memory.firstNumber < 0)
-            memory.firstNumber = memory.firstNumber - selectionNumber / Math.pow(10, memory.decimalSpaces);
-        else
-            memory.firstNumber = memory.firstNumber + selectionNumber / Math.pow(10, memory.decimalSpaces);
-        memory.firstNumber = Math.round((memory.firstNumber + Number.EPSILON) * 100) / 100;
-        if (memory.isNegative) {
-            memory.firstNumber = memory.firstNumber * -1;
-            if (memory.firstNumber != 0)
-                memory.isNegative = false;
-        }
-        memory.displayString = memory.displayString.concat(selectionNumber.toString());
-    }
-    else if (isFirstNumber() && isOperator() && isSecondNumber()) {
-        if (memory.secondNumber < 0)
-            memory.secondNumber = memory.secondNumber - selectionNumber / Math.pow(10, memory.decimalSpaces);
-        else
-            memory.secondNumber = memory.secondNumber + selectionNumber / Math.pow(10, memory.decimalSpaces);
-        memory.secondNumber = Math.round((memory.secondNumber + Number.EPSILON) * 100) / 100;
-        if (memory.isNegative) {
-            memory.secondNumber = memory.secondNumber * -1;
-            if (memory.secondNumber != 0)
-                memory.isNegative = false;
-        }
-        memory.displayString = memory.displayString.concat(selectionNumber.toString());
-    }
+    if (isFirstNumber() && !isOperator() && !isSecondNumber())
+        addDecimalToFirstNumber(selectionNumber);
+    else if (isFirstNumber() && isOperator() && isSecondNumber())
+        addDecimalToSecondNumber(selectionNumber);
     memory.decimalSpaces++;
     displayScreen(memory.displayString);
     return (0);
@@ -37,7 +41,9 @@ function processDecimal(selectionKey) {
 function addDot() {
     if (memory.isDecimal)
         return (1);
-    if (!isOperator() && !isSecondNumber() && (memory.usedAns || memory.usedEqual || memory.reachedStart)) {
+    if (!isOperator() &&
+        !isSecondNumber() &&
+        (memory.usedAns || memory.usedEqual || memory.reachedStart)) {
         memory.displayString = "";
         memory.firstNumber = 0;
         memory.displayString = memory.displayString.concat("0.");
@@ -45,9 +51,6 @@ function addDot() {
     else if (!isFirstNumber()) {
         memory.firstNumber = 0;
         memory.displayString = memory.displayString.concat("0.");
-    }
-    else if (!isOperator() && !isSecondNumber()) {
-        memory.displayString = memory.displayString.concat(".");
     }
     else if (isOperator() && !isSecondNumber()) {
         memory.secondNumber = 0;
