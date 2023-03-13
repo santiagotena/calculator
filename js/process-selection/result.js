@@ -6,7 +6,7 @@ function displayEasterEgg() {
     displayScreen("Wait. That's illegal.");
     resetMemory();
 }
-function setupNextChain(result) {
+function setUpNextCalculation(result) {
     resetMemory();
     memory.firstNumber = result;
     memory.lastResult = result;
@@ -31,6 +31,6 @@ function processResult() {
         isKeyValid = true;
     }
     if (isKeyValid)
-        setupNextChain(result);
+        setUpNextCalculation(result);
 }
 export { processResult };

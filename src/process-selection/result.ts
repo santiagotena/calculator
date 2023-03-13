@@ -8,7 +8,7 @@ function displayEasterEgg(): void {
 	resetMemory();
 }
 
-function setupNextChain(result: number): void {
+function setUpNextCalculation(result: number): void {
 	resetMemory();
 	memory.firstNumber = result;
 	memory.lastResult = result;
@@ -36,7 +36,7 @@ function processResult(): void {
 		isKeyValid = true;
 	}
 	if (isKeyValid)
-		setupNextChain(result);
+		setUpNextCalculation(result);
 }
 
 export {
