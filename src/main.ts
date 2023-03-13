@@ -8,7 +8,7 @@ const processResult = processSelectionImport.processResult;
 const processDecimal = processSelectionImport.processDecimal;
 const addDot = processSelectionImport.addDot;
 import * as utilsImport from './utils.js';
-const clear = utilsImport.clear;
+const processClear = utilsImport.processClear;
 const processDelete = utilsImport.processDelete;
 const processAns = utilsImport.processAns;
 
@@ -48,7 +48,7 @@ function processInput(selection: Element): void {
 	else if (selectionKey === "Enter")
 		processResult();
 	else if (selectionKey === "Clear")
-		clear();
+		processClear();
 	if (isValidInput)
 		memory.memorySteps++;
 }
