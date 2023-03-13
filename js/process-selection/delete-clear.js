@@ -6,7 +6,8 @@ function processClear() {
     resetDisplay();
 }
 function processDelete() {
-    if (!isFirstNumber() && !isOperator() && !isSecondNumber()) {
+    if (!isFirstNumber() && !isOperator() &&
+        !isSecondNumber() && !memory.isNegative) {
         return;
     }
     copyFromHistory();
