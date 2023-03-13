@@ -10,7 +10,8 @@ function processClear(): void {
 function processDelete(): void {
 	if (
 		!isFirstNumber() && !isOperator() && 
-		!isSecondNumber() && !memory.isNegative) {
+		!isSecondNumber() && !memory.isNegative
+		) {
 		return ;
 	}
 	copyFromHistory();

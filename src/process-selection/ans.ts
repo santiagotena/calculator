@@ -19,8 +19,10 @@ function concatAns(): void {
 function processAns(): number {
 	if (!isLastResult())
 		memory.lastResult = 0;
-	if (!isFirstNumber() ||
-		(isLastResult() && !isOperator() && !isSecondNumber())) {
+	if (
+		!isFirstNumber() ||
+		(isLastResult() && !isOperator() && !isSecondNumber())
+		) {
 		displayAns();
 		return (0);
 	} 
