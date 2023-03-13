@@ -1,5 +1,5 @@
-import { memory } from "../memory";
-import { displayScreen } from "../display";
+import { memory } from "../memory.js";
+import { displayScreen } from "../display.js";
 function addSecondNumber(selectionNumber) {
     memory.secondNumber = selectionNumber;
     if (memory.isNegative == true) {
