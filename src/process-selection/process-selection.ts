@@ -10,12 +10,12 @@ export {
 	isSecondNumber
 };
 
-import * as operationsImport from './operations.js';
+import * as operationsImport from '../operations.js';
 const operate = operationsImport.operate;
-import * as memoryImport from './memory.js';
+import * as memoryImport from '../memory.js';
 const memory = memoryImport.memory;
 const resetMemory = memoryImport.resetMemory;
-import * as displayImport from './display.js';
+import * as displayImport from '../display.js';
 const displayScreen = displayImport.displayScreen;
 
 const isLastResult = (): boolean => (memory.lastResult != undefined);
