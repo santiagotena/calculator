@@ -32,7 +32,7 @@ function processNumber(selectionKey) {
             memory.displayString = memory.displayString.slice(0, -1);
             memory.displayString = memory.displayString.concat(selectionNumber.toString());
             displayScreen(memory.displayString);
-            return (0);
+            return (1);
         }
     }
     if (!isFirstNumber()) {
@@ -67,11 +67,13 @@ function processNumber(selectionKey) {
     }
     else {
         if (memory.secondNumber == 0 && selectionNumber == 0)
-            return;
+            return (1);
         else if (memory.secondNumber == 0 && selectionNumber != 0) {
             memory.secondNumber = selectionNumber;
             memory.displayString = memory.displayString.slice(0, -1);
             memory.displayString = memory.displayString.concat(selectionNumber.toString());
+            displayScreen(memory.displayString);
+            return (1);
         }
         else {
             if (memory.secondNumber < 0)
@@ -122,7 +124,7 @@ function processOperator(selectionType) {
             memory.isNegative = true;
             memory.displayString = memory.displayString.concat("-");
             displayScreen(memory.displayString);
-            return (1);
+            return (0);
         }
     }
     else if (!isOperator()) {
