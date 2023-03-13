@@ -24,22 +24,26 @@ function makeMemoryHistory(n) {
 }
 const memory = new Memory();
 const backupMemory = new Memory();
-const memoryHistory = makeMemoryHistory(100);
+const historySize = 1000;
+let memoryHistory = makeMemoryHistory(historySize);
 function resetMemory() {
     for (let key in memory)
         memory[key] = backupMemory[key];
+    memoryHistory = makeMemoryHistory(historySize);
 }
 function copyToHistory() {
     for (let key in memory)
-        memoryHistory[memory.memorySteps - 1][key] = memory[key];
+        memoryHistory[memory.memorySteps][key] = memory[key];
 }
 function copyFromHistory() {
+    if (memory.memorySteps == 1) {
+        resetMemory;
+        return;
+    }
     for (let key in memory)
         memory[key] = memoryHistory[memory.memorySteps - 1][key];
     if (memory.memorySteps == 1) {
         memory.displayString = "0";
         memory.reachedStart = true;
     }
-    if (memory.memorySteps > 1)
-        memory.memorySteps--;
 }

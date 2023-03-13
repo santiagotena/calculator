@@ -28,25 +28,28 @@ function processDelete(): void {
 	displayScreen(memory.displayString);
 }
 
-function processAns(): void {
+function processAns(): number {
 	if (!isLastResult())
 		memory.lastResult = 0;
 	if (!isFirstNumber()) {
 		memory.firstNumber = memory.lastResult;
 		memory.displayString = "Ans";
 		memory.usedAns = true;
-		displayScreen(memory.displayString);	
+		displayScreen(memory.displayString);
+		return (0);
 	} 
 	else if (isFirstNumber() && isOperator() && !isSecondNumber()) {
 		memory.secondNumber = memory.lastResult;
 		memory.displayString = memory.displayString.concat(" Ans");
 		memory.usedAns = true;
 		displayScreen(memory.displayString);
+		return (0);
 	}
 	else if (isLastResult() && !isOperator() && !isSecondNumber()) {
 		memory.firstNumber = memory.lastResult;
 		memory.displayString = "Ans";
 		memory.usedAns = true;
 		displayScreen(memory.displayString);
+		return (0);
 	}
 }

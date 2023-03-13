@@ -26,13 +26,13 @@ function processNumber(selectionKey) {
     }
     if (isFirstNumber() && !isOperator() && !isSecondNumber()) {
         if (memory.firstNumber == 0 && selectionNumber == 0)
-            return;
+            return (1);
         else if (memory.firstNumber == 0 && selectionNumber != 0) {
             memory.firstNumber = selectionNumber;
             memory.displayString = memory.displayString.slice(0, -1);
             memory.displayString = memory.displayString.concat(selectionNumber.toString());
             displayScreen(memory.displayString);
-            return;
+            return (0);
         }
     }
     if (!isFirstNumber()) {
@@ -87,6 +87,7 @@ function processNumber(selectionKey) {
         }
     }
     displayScreen(memory.displayString);
+    return (0);
 }
 function processOperator(selectionType) {
     if (!isFirstNumber() || (memory.firstNumber == 0 && isOperator())) {
@@ -94,7 +95,7 @@ function processOperator(selectionType) {
             memory.isNegative = true;
             memory.displayString = "-";
             displayScreen(memory.displayString);
-            return;
+            return (0);
         }
         if (memory.isNegative == false) {
             if (selectionType == "+") {
@@ -112,16 +113,16 @@ function processOperator(selectionType) {
         }
         memory.operator = selectionType;
         displayScreen(memory.displayString);
-        return;
+        return (0);
     }
     else if (isOperator() && !isSecondNumber()) {
         if (selectionType == "-") {
             if (memory.isNegative)
-                return;
+                return (1);
             memory.isNegative = true;
             memory.displayString = memory.displayString.concat("-");
             displayScreen(memory.displayString);
-            return;
+            return (1);
         }
     }
     else if (!isOperator()) {
@@ -137,7 +138,7 @@ function processOperator(selectionType) {
         memory.isDecimal = false;
         memory.decimalSpaces = 0;
         displayScreen(memory.displayString);
-        return;
+        return (0);
     }
     else if (!isSecondNumber()) {
         memory.displayString = memory.displayString.slice(0, -1);
@@ -151,7 +152,7 @@ function processOperator(selectionType) {
             memory.displayString = memory.displayString.concat("÷");
         memory.operator = selectionType;
         displayScreen(memory.displayString);
-        return;
+        return (1);
     }
 }
 function processResult() {
@@ -173,8 +174,8 @@ function processResult() {
     }
     if (isKeyValid) {
         resetMemory();
-        memory.lastResult = result;
         memory.firstNumber = result;
+        memory.lastResult = result;
         memory.displayString = result.toString();
         memory.usedEqual = true;
         displayScreen(memory.displayString);
@@ -211,10 +212,11 @@ function processDecimal(selectionKey) {
     }
     memory.decimalSpaces++;
     displayScreen(memory.displayString);
+    return (0);
 }
 function addDot() {
     if (memory.isDecimal)
-        return;
+        return (1);
     if (!isOperator() && !isSecondNumber() && (memory.usedAns || memory.usedEqual || memory.reachedStart)) {
         memory.displayString = "";
         memory.firstNumber = 0;
@@ -237,4 +239,5 @@ function addDot() {
     memory.isDecimal = true;
     memory.decimalSpaces++;
     displayScreen(memory.displayString);
+    return (0);
 }

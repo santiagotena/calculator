@@ -10,14 +10,13 @@ To do:
 [x] Second number is negative for mult and div
 [x] .
 	[x] Careful of multiple instances in a number
-[ ] Backspace
-	[ ] Backspace Improve to many clicks
+[x] Backspace
+	[x] Backspace Improve to many clicks
 		[x] Create a memory Interface
-		[ ] Create history as an array of memory objects
-		[ ] Count successful inputs from 0 to n-1 (Current memory = n)
-		[ ] At evaluation's end, reset history
-		[x] Stop at beginning of chains and reset display
-		
+		[x] Create history as an array of memory objects
+		[x] Count successful inputs from 0 to n-1 (Current memory = n)
+		[x] At evaluation's end, reset history
+		[x] Stop at beginning of chains and reset display	
 [ ] Test changing import let to const
 [ ] Battery testing
 [ ] CSS

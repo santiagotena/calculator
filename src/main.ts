@@ -26,19 +26,29 @@ function processInput(selection: Element): void {
 		return ;
 	}
 	copyToHistory();
-	if (selectionType === "number" && memory.isDecimal) // Success possible
-		processDecimal(selectionKey);
-	else if (selectionType === "number" && !memory.isDecimal) // Success possible
-		processNumber(selectionKey);
-	else if (selectionType === "operator") // Success possible
-		processOperator(selectionKey);
-	else if(selectionKey === ".") // Success possible
-		addDot();
-	else if (selectionKey === "Enter") // Restarts
+	if (selectionType === "number" && !memory.isDecimal) {
+		if (processNumber(selectionKey) == 0)
+		isValidInput = true;
+	}
+	else if (selectionType === "number" && memory.isDecimal) {
+		if (processDecimal(selectionKey) == 0)
+			isValidInput = true;
+	}
+	else if (selectionType === "operator") {
+		if (processOperator(selectionKey) == 0)
+			isValidInput = true;
+	}
+	else if(selectionKey === ".") {
+		if (addDot() == 0)
+			isValidInput = true;
+	}
+	else if (selectionKey === "a") {
+		if (processAns() == 0)
+			isValidInput = true;
+	}
+	else if (selectionKey === "Enter")
 		processResult();
-	else if (selectionKey === "a") // Success possible
-		processAns();
-	else if (selectionKey === "Clear") // Restarts
+	else if (selectionKey === "Clear")
 		clear();
 	if (isValidInput)
 		memory.memorySteps++;
