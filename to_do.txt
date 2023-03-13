@@ -16,7 +16,8 @@ To do:
 		[x] Create history as an array of memory objects
 		[x] Count successful inputs from 0 to n-1 (Current memory = n)
 		[x] At evaluation's end, reset history
-		[x] Stop at beginning of chains and reset display	
+		[x] Stop at beginning of chains and reset display
+[ ] Check all return values of processSelection
 [ ] Test changing import let to const
 [ ] Battery testing
 [ ] CSS
