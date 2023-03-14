@@ -1,0 +1,52 @@
+Tests
+
+[ ] Sums
+	[ ] Small numbers
+	[ ] Big numbers
+	[ ] Decimals
+
+[ ] Substracions
+	[ ] Small numbers
+	[ ] Big numbers
+	[ ] Decimals
+
+[ ] Divisions
+	[ ] Divide by zero
+	[ ] Are decimals okay
+	[ ] Are negatives okay
+
+[ ] Multiplications
+	[ ] Small numbers
+	[ ] Big numbers
+	[ ] Are decimals okay
+
+[ ] Operators
+	[ ] Are multiple forbidden?
+	[ ] Are they possible at all allowed stages?
+
+[ ] Negative numbers
+	[ ] Do they display properly
+	[ ] Do they calculate properly
+
+[ ] Ans
+	[ ] Use as first number
+	[ ] Use as second number
+	[ ] Use two in a row
+
+[ ] Decimals
+	[ ] Interact positive and negative
+	[ ] First number
+	[ ] Second number
+	[ ] Can a number have multiple decimal numbers?
+
+[ ] Multiple zeroes
+	[ ] First number
+	[ ] Second number
+
+[ ] Multiple minuses
+	[ ] First number
+	[ ] Second number
+
+[ ] Clear
+	[ ] Can be used at all stages?
+	[ ] It implements properly?
