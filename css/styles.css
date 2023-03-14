@@ -57,10 +57,9 @@ button {
 	border-radius: 5px;
 }
 [data-type="operator"] {
-	border-color: red;
+	border-color: orange;
 	background: rgba(0,0,0,0.1);
 }
-
 [data-key="Backspace"],
 [data-key="Clear"],
 [data-key="a"] {
@@ -68,11 +67,11 @@ button {
 }
 [data-key="Backspace"],
 [data-key="Clear"] {
-	border-color: blue;
+	border-color: red;
 }
 [data-key="a"],
 [data-key="."] {
-	border-color: orange;
+	border-color:cornflowerblue;
 }
 [data-key="Enter"] {
 	width: 75px;

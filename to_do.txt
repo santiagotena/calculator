@@ -20,7 +20,7 @@ To do:
 [x] Check all return values of processSelection
 [x] Test changing import let to const
 [x] Refactor
-[ ] CSS
+[x] CSS
 [ ] Final testing
 
 Strange cases:
