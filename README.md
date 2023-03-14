@@ -6,7 +6,7 @@
  
 The goal for this The Odin Project is to create a calculator that runs in the browser.
 
-The calculator is capable of handling the four basic operators, decimal numbers, access the previous calculation's answer, delete the last input and to clear all.
+The calculator is capable of handling the four basic operators and decimal numbers, accessing the previous calculation's answer, deleting the last input and clearing it all.
 
 This project required the use of HTML, CSS and JavaScript.
 
