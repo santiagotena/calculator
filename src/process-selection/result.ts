@@ -11,9 +11,6 @@ function displayEasterEgg(result: number): boolean {
 	if (result === 69) {
 		message = "Nice";
 		isEasterEgg = true;
-	} else if (result == 420) {
-		message = "Smoke Weed Everyday";
-		isEasterEgg = true
 	} else if (result == 58008) {
 		message = "Cultured";
 		isEasterEgg = true
