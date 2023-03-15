@@ -1,55 +1,55 @@
 Tests
 
-[ ] Sums
-	[ ] Small numbers
-	[ ] Big numbers
-	[ ] Decimals
+[x] Sums
+	[x] Small numbers
+	[x] Big numbers
+	[x] Include negatives
+	[x] Decimals
+[x] Substracions
+	[x] Small numbers
+	[x] Big numbers
+	[x] Decimals
 
-[ ] Substracions
-	[ ] Small numbers
-	[ ] Big numbers
-	[ ] Decimals
+[x] Divisions
+	[x] Divide by zero
+	[x] Small numbers
+	[x] Big numbers
+	[x] Are negatives okay
+	[x] Are decimals okay
 
-[ ] Divisions
-	[ ] Divide by zero
-	[ ] Small numbers
-	[ ] Big numbers
-	[ ] Are negatives okay
-	[ ] Are decimals okay
+[x] Multiplications
+	[x] Small numbers
+	[x] Big numbers
+	[x] Negative numbers
+	[x] Are decimals okay
 
-[ ] Multiplications
-	[ ] Small numbers
-	[ ] Big numbers
-	[ ] Negative numbers
-	[ ] Are decimals okay
+[x] Operators
+	[x] Are multiple forbidden?
+	[x] Are they possible at all allowed stages?
 
-[ ] Operators
-	[ ] Are multiple forbidden?
-	[ ] Are they possible at all allowed stages?
+[x] Negative numbers
+	[x] Do they display properly
+	[x] Do they calculate properly
 
-[ ] Negative numbers
-	[ ] Do they display properly
-	[ ] Do they calculate properly
+[x] Ans
+	[x] Use as first number
+	[x] Use as second number
+	[x] Use two in a row
 
-[ ] Ans
-	[ ] Use as first number
-	[ ] Use as second number
-	[ ] Use two in a row
+[x] Decimals
+	[x] Interact positive and negative
+	[x] First number
+	[x] Second number
+	[x] Can a number have multiple decimal numbers?
 
-[ ] Decimals
-	[ ] Interact positive and negative
-	[ ] First number
-	[ ] Second number
-	[ ] Can a number have multiple decimal numbers?
+[x] Multiple zeroes
+	[x] First number
+	[x] Second number
 
-[ ] Multiple zeroes
-	[ ] First number
-	[ ] Second number
+[x] Multiple minuses
+	[x] First number
+	[x] Second number
 
-[ ] Multiple minuses
-	[ ] First number
-	[ ] Second number
-
-[ ] Clear
-	[ ] Can be used at all stages?
-	[ ] It implements properly?
+[x] Clear
+	[x] Can be used at all stages?
+	[x] It implements properly?
