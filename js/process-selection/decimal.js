@@ -41,12 +41,9 @@ function processDecimal(selectionKey) {
 function addDot() {
     if (memory.isDecimal)
         return (1);
-    if (isAnsOrEqualUsed()) {
-        memory.displayString = "";
-        memory.firstNumber = 0;
-        memory.displayString = memory.displayString.concat("0.");
-    }
-    else if (!isFirstNumber()) {
+    if (!isFirstNumber() || isAnsOrEqualUsed()) {
+        if (isAnsOrEqualUsed())
+            memory.displayString = "";
         memory.firstNumber = 0;
         memory.displayString = memory.displayString.concat("0.");
     }
