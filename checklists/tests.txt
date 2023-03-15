@@ -12,12 +12,15 @@ Tests
 
 [ ] Divisions
 	[ ] Divide by zero
-	[ ] Are decimals okay
+	[ ] Small numbers
+	[ ] Big numbers
 	[ ] Are negatives okay
+	[ ] Are decimals okay
 
 [ ] Multiplications
 	[ ] Small numbers
 	[ ] Big numbers
+	[ ] Negative numbers
 	[ ] Are decimals okay
 
 [ ] Operators
