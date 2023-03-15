@@ -1,5 +1,5 @@
 class Memory {
-    constructor(firstNumber = undefined, operator = undefined, secondNumber = undefined, lastResult = undefined, isNegative = false, isDecimal = false, decimalSpaces = 0, usedAns = false, usedEqual = false, displayString = "", memorySteps = 1, reachedStart = false) {
+    constructor(firstNumber = undefined, operator = undefined, secondNumber = undefined, lastResult = undefined, isNegative = false, isDecimal = false, decimalSpaces = 0, usedAns = false, usedEqual = false, displayString = "", memorySteps = 1) {
         this.firstNumber = firstNumber;
         this.operator = operator;
         this.secondNumber = secondNumber;
@@ -11,7 +11,6 @@ class Memory {
         this.usedEqual = usedEqual;
         this.displayString = displayString;
         this.memorySteps = memorySteps;
-        this.reachedStart = reachedStart;
     }
 }
 function makeMemoryHistory(n) {
@@ -40,9 +39,5 @@ function copyFromHistory() {
     }
     for (let key in memory)
         memory[key] = memoryHistory[memory.memorySteps - 1][key];
-    if (memory.memorySteps == 1) {
-        memory.displayString = "0";
-        memory.reachedStart = true;
-    }
 }
 export { memory, resetMemory, copyToHistory, copyFromHistory };
