@@ -60,6 +60,10 @@ function processOperator(selectionType) {
             makeFirstNumberNegative();
             return (0);
         }
+        if (!memory.isNegative && isOperator()) {
+            addOperatorToZero(selectionType);
+            return (1);
+        }
         if (!memory.isNegative) {
             addOperatorToZero(selectionType);
             return (0);
