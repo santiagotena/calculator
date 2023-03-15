@@ -44,8 +44,6 @@ function replaceRestartValue(): void {
 		memory.usedAns = false;
 	if (memory.usedEqual)
 		memory.usedEqual = false;
-	if (memory.reachedStart)
-		memory.reachedStart = false;
 }
 
 function processNumber(selectionKey: string): number {

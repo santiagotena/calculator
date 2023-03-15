@@ -25,7 +25,7 @@ function isNewCalculation(): boolean {
 	return (
 			!isOperator() && 
 			!isSecondNumber() && 
-			(memory.usedAns || memory.usedEqual || memory.reachedStart)
+			(memory.usedAns || memory.usedEqual)
 			);
 }
 

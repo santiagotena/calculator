@@ -10,7 +10,6 @@ class Memory {
 	usedEqual: boolean;
 	displayString: string;
 	memorySteps: number;
-	reachedStart: boolean;
 
 	constructor(
 		firstNumber = undefined, 
@@ -23,8 +22,7 @@ class Memory {
 		usedAns = false,
 		usedEqual = false,
 		displayString = "",
-		memorySteps = 1,
-		reachedStart = false
+		memorySteps = 1
 	) {
 		this.firstNumber = firstNumber;
 		this.operator = operator;
@@ -37,7 +35,6 @@ class Memory {
 		this.usedEqual = usedEqual;
 		this.displayString = displayString;
 		this.memorySteps = memorySteps;
-		this.reachedStart = reachedStart;
 	}
 }
 	
@@ -71,10 +68,6 @@ function copyFromHistory(): void {
 	}
 	for (let key in memory)
 		memory[key]= memoryHistory[memory.memorySteps - 1][key];
-	if (memory.memorySteps == 1) {
-		memory.displayString = "0";
-		memory.reachedStart = true;
-	}
 }
 
 export {
