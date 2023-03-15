@@ -32,11 +32,15 @@ function isAnsOrEqualUsed(): boolean {
 
 function isCalculationEmpty(): boolean {
 	return (!isFirstNumber() && !isOperator() && 
-	!isSecondNumber() && !memory.isNegative);
+			!isSecondNumber() && !memory.isNegative);
 }
 
 function canFirstNumberHaveOperator(): boolean {
 	return (!isFirstNumber() || (memory.firstNumber == 0 && isOperator()));
+}
+
+function reachedTheStart(): boolean {
+	return (memory.memorySteps == 1 && !memory.usedAns);
 }
 
 export {
@@ -50,5 +54,6 @@ export {
 	justReceivedAnswer,
 	isOnlySecondNumberMissing,
 	canFirstNumberHaveOperator,
-	isCalculationEmpty
+	isCalculationEmpty,
+	reachedTheStart
 };

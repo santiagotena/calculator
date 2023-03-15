@@ -28,4 +28,7 @@ function isCalculationEmpty() {
 function canFirstNumberHaveOperator() {
     return (!isFirstNumber() || (memory.firstNumber == 0 && isOperator()));
 }
-export { isLastResult, isFirstNumber, isOperator, isSecondNumber, isOnlyFirstNumber, areBothNumbersAndOperator, isAnsOrEqualUsed, justReceivedAnswer, isOnlySecondNumberMissing, canFirstNumberHaveOperator, isCalculationEmpty };
+function reachedTheStart() {
+    return (memory.memorySteps == 1 && !memory.usedAns);
+}
+export { isLastResult, isFirstNumber, isOperator, isSecondNumber, isOnlyFirstNumber, areBothNumbersAndOperator, isAnsOrEqualUsed, justReceivedAnswer, isOnlySecondNumberMissing, canFirstNumberHaveOperator, isCalculationEmpty, reachedTheStart };
