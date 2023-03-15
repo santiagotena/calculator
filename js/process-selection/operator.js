@@ -81,6 +81,8 @@ function processOperator(selectionType) {
             return (0);
         }
         else {
+            if (memory.isNegative)
+                return (1);
             replaceOperator(selectionType);
             return (1);
         }

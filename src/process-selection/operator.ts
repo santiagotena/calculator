@@ -88,6 +88,8 @@ function processOperator(selectionType: string): number {
 			makeSecondNumberNegative();
 			return (0);
 		} else {
+			if (memory.isNegative)
+				return (1);
 			replaceOperator(selectionType);
 			return (1);
 		}
