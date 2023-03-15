@@ -30,11 +30,6 @@ function isAnsOrEqualUsed(): boolean {
 			);
 }
 
-function isCalculationEmpty(): boolean {
-	return (!isFirstNumber() && !isOperator() && 
-			!isSecondNumber() && !memory.isNegative);
-}
-
 function canFirstNumberHaveOperator(): boolean {
 	return (!isFirstNumber() || (memory.firstNumber == 0 && isOperator()));
 }
@@ -54,6 +49,5 @@ export {
 	justReceivedAnswer,
 	isOnlySecondNumberMissing,
 	canFirstNumberHaveOperator,
-	isCalculationEmpty,
 	reachedTheStart
 };
