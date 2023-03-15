@@ -1,4 +1,4 @@
-import { isFirstNumber, isNewCalculation, isOnlyFirstNumber, isOnlySecondNumberMissing } from "./booleans.js";
+import { isAnsOrEqualUsed, isFirstNumber, isOnlyFirstNumber, isOnlySecondNumberMissing } from "./booleans.js";
 import { addSecondNumber, expandSecondNumber, replaceSecondZero } from "./number-two.js";
 import { memory } from "../memory.js";
 import { displayScreen } from "../display.js";
@@ -37,13 +37,11 @@ function replaceRestartValue() {
         memory.usedAns = false;
     if (memory.usedEqual)
         memory.usedEqual = false;
-    if (memory.reachedStart)
-        memory.reachedStart = false;
 }
 function processNumber(selectionKey) {
     let selectionNumber;
     selectionNumber = +selectionKey;
-    if (isNewCalculation()) {
+    if (isAnsOrEqualUsed()) {
         replaceRestartValue();
     }
     if (isOnlyFirstNumber()) {

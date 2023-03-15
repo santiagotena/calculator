@@ -15,10 +15,11 @@ function areBothNumbersAndOperator() {
 function justReceivedAnswer() {
     return (isLastResult() && !isOperator() && !isSecondNumber());
 }
-function isNewCalculation() {
-    return (!isOperator() &&
+function isAnsOrEqualUsed() {
+    return (isFirstNumber() &&
+        !isOperator() &&
         !isSecondNumber() &&
-        (memory.usedAns || memory.usedEqual || memory.reachedStart));
+        (memory.usedAns || memory.usedEqual));
 }
 function isCalculationEmpty() {
     return (!isFirstNumber() && !isOperator() &&
@@ -27,4 +28,4 @@ function isCalculationEmpty() {
 function canFirstNumberHaveOperator() {
     return (!isFirstNumber() || (memory.firstNumber == 0 && isOperator()));
 }
-export { isLastResult, isFirstNumber, isOperator, isSecondNumber, isOnlyFirstNumber, areBothNumbersAndOperator, isNewCalculation, justReceivedAnswer, isOnlySecondNumberMissing, canFirstNumberHaveOperator, isCalculationEmpty };
+export { isLastResult, isFirstNumber, isOperator, isSecondNumber, isOnlyFirstNumber, areBothNumbersAndOperator, isAnsOrEqualUsed, justReceivedAnswer, isOnlySecondNumberMissing, canFirstNumberHaveOperator, isCalculationEmpty };

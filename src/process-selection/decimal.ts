@@ -1,5 +1,5 @@
 import { 
-		areBothNumbersAndOperator, isFirstNumber, isNewCalculation, 
+		areBothNumbersAndOperator, isAnsOrEqualUsed, isFirstNumber, 
 		isOnlyFirstNumber, isOnlySecondNumberMissing 
 		} from "./booleans.js";
 import { memory } from "../memory.js";
@@ -49,7 +49,7 @@ function processDecimal(selectionKey: string): number {
 function addDot(): number {
 	if (memory.isDecimal)
 		return (1);
-	if (isNewCalculation()) {
+	if (isAnsOrEqualUsed()) {
 		memory.displayString = "";
 		memory.firstNumber = 0;
 		memory.displayString = memory.displayString.concat("0.");

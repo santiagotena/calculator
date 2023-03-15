@@ -1,6 +1,6 @@
 import { 
-		isFirstNumber, isNewCalculation, isOnlyFirstNumber, 
-		isOnlySecondNumberMissing 
+		isAnsOrEqualUsed, isFirstNumber, 
+		isOnlyFirstNumber, isOnlySecondNumberMissing 
 		} from "./booleans.js";
 import { addSecondNumber, expandSecondNumber, replaceSecondZero } from "./number-two.js";
 import { memory } from "../memory.js";
@@ -50,7 +50,7 @@ function processNumber(selectionKey: string): number {
 	let selectionNumber: number;
 
 	selectionNumber = +selectionKey;
-	if (isNewCalculation()) {
+	if (isAnsOrEqualUsed()) {
 		replaceRestartValue();
 	}
 	if (isOnlyFirstNumber()) {

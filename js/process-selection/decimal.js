@@ -1,4 +1,4 @@
-import { areBothNumbersAndOperator, isFirstNumber, isNewCalculation, isOnlyFirstNumber, isOnlySecondNumberMissing } from "./booleans.js";
+import { areBothNumbersAndOperator, isAnsOrEqualUsed, isFirstNumber, isOnlyFirstNumber, isOnlySecondNumberMissing } from "./booleans.js";
 import { memory } from "../memory.js";
 import { displayScreen } from "../display.js";
 function addDecimalToSecondNumber(selectionNumber) {
@@ -41,7 +41,7 @@ function processDecimal(selectionKey) {
 function addDot() {
     if (memory.isDecimal)
         return (1);
-    if (isNewCalculation()) {
+    if (isAnsOrEqualUsed()) {
         memory.displayString = "";
         memory.firstNumber = 0;
         memory.displayString = memory.displayString.concat("0.");

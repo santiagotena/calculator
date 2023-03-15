@@ -21,8 +21,9 @@ function justReceivedAnswer(): boolean {
 	return (isLastResult() && !isOperator() && !isSecondNumber());	
 }
 
-function isNewCalculation(): boolean {
+function isAnsOrEqualUsed(): boolean {
 	return (
+			isFirstNumber() &&
 			!isOperator() && 
 			!isSecondNumber() && 
 			(memory.usedAns || memory.usedEqual)
@@ -45,7 +46,7 @@ export {
 	isSecondNumber,
 	isOnlyFirstNumber,
 	areBothNumbersAndOperator,
-	isNewCalculation,
+	isAnsOrEqualUsed,
 	justReceivedAnswer,
 	isOnlySecondNumberMissing,
 	canFirstNumberHaveOperator,
