@@ -14,7 +14,7 @@ In order to complete this project it was important to properly anchor event list
 
 Beyond all of this, file and folder structure management was important to keep a coherent project. Linking files in an appropriate manner was useful to preserve modularity, while refactoring played a major role towards improving readability.
 
-Finally, this project would not have been able to be completed without extensive use of a debugger and a life server.
+Finally, this project would not have been able to be completed without extensive use of a debugger and a live server.
 
 The website was published via Github and can be accessed using the following link:
 
