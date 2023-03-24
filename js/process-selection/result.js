@@ -7,7 +7,7 @@ function displayEasterEgg(result) {
     let message;
     isEasterEgg = false;
     if (result === 42) {
-        message = "The meaning of life.";
+        message = "The meaning of life";
         isEasterEgg = true;
     }
     else if (result == 69) {

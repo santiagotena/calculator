@@ -9,7 +9,7 @@ function displayEasterEgg(result: number): boolean {
 	
 	isEasterEgg = false;
 	if (result === 42) {
-		message = "The meaning of life.";
+		message = "The meaning of life";
 		isEasterEgg = true;
 	} else if (result == 69) {
 		message = "Nice";
