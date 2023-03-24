@@ -36,6 +36,9 @@ body {
 	display: flex;
 	justify-content: end;
 	align-items: end;
+	overflow: hidden;
+	white-space: nowrap;
+  	text-overflow: ellipsis;
 }
 .keys-container {
 	height: 100%;
