@@ -11,9 +11,6 @@ function displayEasterEgg(result: number): boolean {
 	if (result === 42) {
 		message = "The meaning of life";
 		isEasterEgg = true;
-	} else if (result == 69) {
-		message = "Nice";
-		isEasterEgg = true;
 	}
 	displayScreen(message);
 	resetMemory();
