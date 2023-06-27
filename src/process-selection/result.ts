@@ -8,12 +8,9 @@ function displayEasterEgg(result: number): boolean {
 	let message: string;
 	
 	isEasterEgg = false;
-	if (result === 69) {
-		message = "Nice";
+	if (result === 42) {
+		message = "The meaning of life";
 		isEasterEgg = true;
-	} else if (result == 58008) {
-		message = "Cultured";
-		isEasterEgg = true
 	}
 	displayScreen(message);
 	resetMemory();

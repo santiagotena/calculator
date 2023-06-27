@@ -6,12 +6,8 @@ function displayEasterEgg(result) {
     let isEasterEgg;
     let message;
     isEasterEgg = false;
-    if (result === 69) {
-        message = "Nice";
-        isEasterEgg = true;
-    }
-    else if (result == 58008) {
-        message = "Cultured";
+    if (result === 42) {
+        message = "The meaning of life";
         isEasterEgg = true;
     }
     displayScreen(message);
